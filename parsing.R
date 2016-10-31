@@ -48,6 +48,9 @@ MASP.TREE <- function(query, root, block) {
   aresult[[1]] <- paste0(query1, " & D$", colname, " != ", names(gmax))
   aresult[[2]] <- query2
   
+  # nrow.d <- nrow(d)
+  # rm(d)
+  
   if(gmax/nrow(D) >= S) {
     if(gmax/nrow(d) >= C) {
       lchild <- root$AddChild(paste0(colname, "=", names(gmax)))
@@ -145,10 +148,55 @@ for(i in 1:length(all.nodes)) {
 
 # TESTING 2
 d <- read.table("pumsb.dat")
-root <- generateMaspTree(data = d, support = 0.1, confidence = 0.1)
+root <- generateMaspTree(data = d, support = 0.1, confidence = 0.5)
 plot(root)
+
+# > system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
+# user  system elapsed 
+# 58.076   0.024  58.065
 
 # TESTING 3
 d <- read.table("connect.dat")
-root <- generateMaspTree(data = d, support = 0.1, confidence = 0.1)
+root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25)
 plot(root)
+
+longestRuleSize <- function(root) {
+  nodes <- Traverse(root, filterFun = isLeaf)
+  pinroot <- lapply(nodes, FUN = function(node){node$path})
+  pexroot <- lapply(pinroot, FUN = function(v){v[-1]})
+  max(sapply(pexroot, function(x) length(x)))
+}
+
+generateMaspRules <- function(masp) {
+   l <- length(masp)-1
+   
+   if(l == 0) {
+     return(list())
+   }
+   
+   rules <- list()
+   for(i in 1:l) {
+     rule <- paste0("(")
+     for(j in 1:i) {
+       if(j == i)
+         rule <- paste0(rule, masp[j], ")")
+       else
+         rule <- paste0(rule, masp[j], ", ")
+     }
+     rule <- paste0(rule, " -> (", masp[i+1], ")")
+     rules[[i]] <- rule
+   }
+   rules
+}
+
+generateAllMaspRules <- function(root) {
+  nodes <- Traverse(root, filterFun = isLeaf)
+  pinroot <- lapply(nodes, FUN = function(node){node$path})
+  pexroot <- lapply(pinroot, FUN = function(v){v[-1]})
+  allRules <- list()
+  for(i in 1:length(pexroot)) {
+    rules <- generateMaspRules(pexroot[[i]])
+    allRules <- append(allRules, rules)
+  }
+  allRules
+}
