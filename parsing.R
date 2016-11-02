@@ -148,7 +148,11 @@ for(i in 1:length(all.nodes)) {
 
 # TESTING 2
 d <- read.table("pumsb.dat")
-root <- generateMaspTree(data = d, support = 0.1, confidence = 0.5)
+d1 <- d[, 1:50]
+system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
+longestRuleSize(root)
+system.time(root <- generateMaspTree(data = d1, support = 0.001, confidence = 0.25))
+longestRuleSize(root)
 plot(root)
 
 # > system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
@@ -157,7 +161,8 @@ plot(root)
 
 # TESTING 3
 d <- read.table("connect.dat")
-root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25)
+system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
+longestRuleSize(root)
 plot(root)
 
 longestRuleSize <- function(root) {
@@ -200,3 +205,11 @@ generateAllMaspRules <- function(root) {
   }
   allRules
 }
+
+# blog data
+
+setwd("blogdata/")
+d <- read.csv("blogData_train.csv", header = FALSE)
+d <- d[, 1:50]
+system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
+longestRuleSize(root)
