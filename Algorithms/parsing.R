@@ -160,7 +160,7 @@ plot(root)
 # 58.076   0.024  58.065
 
 # TESTING 3
-d <- read.table("connect.dat")
+d <- read.table("../datasets/connect.dat")
 system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
 longestRuleSize(root)
 plot(root)
@@ -208,8 +208,7 @@ generateAllMaspRules <- function(root) {
 
 # blog data
 
-setwd("blogdata/")
-d <- read.csv("blogData_train.csv", header = FALSE)
+d <- read.csv("../datasets/blogdata/blogData_train.csv", header = FALSE)
 d <- d[, 1:50]
 system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
 longestRuleSize(root)
