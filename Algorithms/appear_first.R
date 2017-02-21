@@ -85,3 +85,48 @@ generateAllMaspRules(root1)
 
 # new approach
 new_model(mtdt, .6, .3)
+
+#lowram #stuck #testcase
+generate.data.mod <- function(nrow, ncol, rng) {
+  data <- matrix(nrow = nrow, ncol = ncol) 
+  for(i in 1:nrow) {
+    data[i, ] <- sample(1:rng, ncol)
+  }
+  old_data <- as.data.frame(data)
+  new_data <- data
+  new_data[1, 1] <- as.character(new_data[1, 1])
+  
+  list(old_data = old_data, new_data = new_data)
+}
+
+set.seed(10001)
+cdata <- generate.data.mod(20, 20, 25)
+root1 <- generateMaspTree(cdata$old_data, .1, .05)
+root1
+old_rules <- generateAllMaspRules(root1)
+new_rules <- new_model(cdata$new_data, .1, .05)
+
+set.seed(1010)
+cdata <- generate.data.mod(40, 40, 47)
+root1 <- generateMaspTree(cdata$old_data, .1, .05)
+root1
+old_rules <- generateAllMaspRules(root1)
+new_rules <- new_model(cdata$new_data, .1, .05)
+length(old_rules)
+length(new_rules)
+
+# slow speed
+set.seed(1010)
+cdata <- generate.data.mod(100, 100, 105)
+root1 <- generateMaspTree(cdata$old_data, .03, .001)
+root1
+old_rules <- generateAllMaspRules(root1)
+new_rules <- new_model(cdata$new_data, .03, .001)
+length(old_rules)
+length(new_rules)
+
+# when new approch became worse
+set.seed(1010)
+cdata <- generate.data.mod(1000, 1000, 1020)
+new_rules <- new_model(cdata$new_data, .03, .001)
+length(new_rules)
