@@ -60,6 +60,10 @@ generateAllMaspRulesMod <- function(root, item) {
     }
     unique(allrules)
   }
+  
+max_rule_size <- function(rules) {
+  max(0, sapply(rules, function(rule) length(strsplit(rule, ",")[[1]]) + 1))
+}  
 
 # testing
 library(tidyverse) # support .60 confidence .30
@@ -81,10 +85,12 @@ mtdt[1, 1] <- as.character(mtdt[1, 1])
 
 # old approach
 root1 <- generateMaspTree(dfdt, .60, .3)
-generateAllMaspRules(root1)
+old_rules <- generateAllMaspRules(root1)
 
 # new approach
-new_model(mtdt, .6, .3)
+new_rules <- new_model(mtdt, .6, .3)
+max_rule_size(old_rules)
+max_rule_size(new_rules)
 
 #lowram #stuck #testcase
 generate.data.mod <- function(nrow, ncol, rng) {
@@ -105,6 +111,8 @@ root1 <- generateMaspTree(cdata$old_data, .1, .05)
 root1
 old_rules <- generateAllMaspRules(root1)
 new_rules <- new_model(cdata$new_data, .1, .05)
+max_rule_size(old_rules)
+max_rule_size(new_rules)
 
 set.seed(1010)
 cdata <- generate.data.mod(40, 40, 47)
@@ -114,6 +122,8 @@ old_rules <- generateAllMaspRules(root1)
 new_rules <- new_model(cdata$new_data, .1, .05)
 length(old_rules)
 length(new_rules)
+max_rule_size(old_rules)
+max_rule_size(new_rules)
 
 # slow speed
 set.seed(1010)
@@ -124,9 +134,11 @@ old_rules <- generateAllMaspRules(root1)
 new_rules <- new_model(cdata$new_data, .03, .001)
 length(old_rules)
 length(new_rules)
+max_rule_size(old_rules)
+max_rule_size(new_rules)
 
 # when new approch became worse
 set.seed(1010)
 cdata <- generate.data.mod(1000, 1000, 1020)
-new_rules <- new_model(cdata$new_data, .03, .001)
+new_rules <- new_model(cdata$new_data, .3, .01)
 length(new_rules)
