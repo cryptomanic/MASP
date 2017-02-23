@@ -5,14 +5,18 @@ longestRuleSizeMod <- function(root, item) {
   max(sapply(pexroot, function(x) ifelse(item %in% x, length(x), 0)))
 }
 
-generateMaspRulesMod <- function(masp, item) {
+generateMaspRulesMod <- function(masp, items) {
   l <- length(masp)-1
   
-  if(l == 0 || !(item %in% masp)) {
+  if(l == 0 || !any(items %in% masp)) {
     return(list())
   }
   
-  where_occur <- which(masp == item)
+  where_occur <- length(masp)
+  
+  for(i in 1:length(items)) {
+    where_occur <- min(which(masp == items[i]), where_occur)
+  }
   
   rules <- list()
   for(i in 1:l) {
@@ -31,31 +35,32 @@ generateMaspRulesMod <- function(masp, item) {
   rules
 }
 
-generateAllMaspRulesMod <- function(root, item) {
+generateAllMaspRulesMod <- function(root, items) {
   nodes <- Traverse(root, filterFun = isLeaf)
   pinroot <- lapply(nodes, FUN = function(node){node$path})
   pexroot <- lapply(pinroot, FUN = function(v){v[-1]})
   allRules <- list()
   for(i in 1:length(pexroot)) {
-    rules <- generateMaspRulesMod(pexroot[[i]], item)
+    rules <- generateMaspRulesMod(pexroot[[i]], items)
     allRules <- append(allRules, rules)
   }
   allRules
 }
 
   new_model <- function(data, support = 0.3, confidence = 0.2) {
+    # itemsMinRow is a list
+    # first element is the row number after that which items first appear in this row
     itemsMinRow <- uniqueItems(data)
     print(itemsMinRow)
-    items <- itemsMinRow[[1]]
-    rowno <- itemsMinRow[[2]]
     
     row <- nrow(data)
     col <- ncol(data)
     
     allrules <- list()
-    for(i in 1:length(items)) {
-      root <- generateMaspTree2(data[rowno[i]:row, , drop = FALSE], support, confidence)
-      lrs <- generateAllMaspRulesMod(root, items[i])
+    for(i in 1:length(itemsMinRow)) {
+      help <- itemsMinRow[[i]]
+      root <- generateMaspTree2(data[(as.numeric(help[1])):row, , drop = FALSE], support, confidence)
+      lrs <- generateAllMaspRulesMod(root, help[-1])
       allrules <- append(allrules, lrs)
     }
     unique(allrules)
@@ -140,5 +145,11 @@ max_rule_size(new_rules)
 # when new approch became worse
 set.seed(1010)
 cdata <- generate.data.mod(1000, 1000, 1020)
+root1 <- generateMaspTree(cdata$old_data, .3, .01)
+root1
+old_rules <- generateAllMaspRules(root1)
 new_rules <- new_model(cdata$new_data, .3, .01)
+length(old_rules)
 length(new_rules)
+max_rule_size(old_rules)
+max_rule_size(new_rules)
