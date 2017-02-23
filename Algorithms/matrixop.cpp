@@ -63,19 +63,25 @@ List fitem_matrs(CharacterMatrix data) {
 // [[Rcpp::export]]
 List uniqueItems(CharacterMatrix data) {
   map<string, int> ma;
+  map<int, vector<string> > mivs;
   int n = data.nrow(), m = data.ncol();
   for(int i = 0;i < n;i++) 
     for(int j = 0;j < m;j++)
       if(ma.find(as<string>(data(i, j))) == ma.end()) ma[as<string>(data(i, j))] = i + 1;
   
-  CharacterVector uniqs;
-  IntegerVector index;
   for(auto it = ma.begin();it != ma.end();it++) {
-    uniqs.push_back(it->first);
-    index.push_back(it->second);
+    if(mivs[it->second].size() == 0) mivs[it->second].push_back(to_string(it->second));
+    mivs[it->second].push_back(it->first);
   }
   
-  return List::create(_["UniqueItems"] = uniqs, _["WhichRow"] = index);
+  long long sz = mivs.size(), k = 0;
+  List out(sz);
+  for(auto it = mivs.begin(); it != mivs.end();it++) {
+    out[k] = it->second;
+    k++;
+  }
+  
+  return out;
 }
 
 /*** R
