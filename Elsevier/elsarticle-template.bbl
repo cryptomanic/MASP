@@ -13,21 +13,29 @@ O.~M. Soysal, Association rule mining with mostly associated sequential
   {\path{doi:http://dx.doi.org/10.1016/j.eswa.2014.10.049}}.
 
 \bibitem{fastapriori}
-R.~S. Rakesh~Agrawal, Fast algorithms for mining association rules, Proceedings
-  of the 20th VLDB Conference Santiago, Chile.
+R.~Agrawal, R.~Srikant, Fast algorithms for mining association rules (1994)
+  487--499.
 
 \bibitem{ais}
-A.~S. "~R.~Agrawal", "T.~Imielinski", Mining association rules between sets of
-  items in large databases, ACM SIGMOD Conference on Management of Data,
-  Washington, D.C.
+R.~Agrawal, T.~Imieli\'{n}ski, A.~Swami,
+  \href{http://doi.acm.org/10.1145/170036.170072}{Mining association rules
+  between sets of items in large databases}, SIGMOD Rec. 22~(2) (1993)
+  207--216.
+\newblock \href {http://dx.doi.org/10.1145/170036.170072}
+  {\path{doi:10.1145/170036.170072}}.
+\newline\urlprefix\url{http://doi.acm.org/10.1145/170036.170072}
 
 \bibitem{setm}
-A.~S. "M.~Houtsma", Set-oriented mining of association rules, Research Report
+M.~Houtsma, A.~Swami, Set-oriented mining of association rules, Research Report
   RJ 9567, IBM Almaden Research Center, San Jose, California.
 
 \bibitem{fpgrowth}
-Y.~Y. "Jian Pei~", "Jiawei~Han", Mining frequent patterns without candidate
-  generation: A frequent-pattern tree approach, Data Mining and Knowledge
-  Discovery.
+J.~Han, J.~Pei, Y.~Yin, R.~Mao,
+  \href{http://dx.doi.org/10.1023/B:DAMI.0000005258.31418.83}{Mining frequent
+  patterns without candidate generation: A frequent-pattern tree approach},
+  Data Mining and Knowledge Discovery 8~(1) (2004) 53--87.
+\newblock \href {http://dx.doi.org/10.1023/B:DAMI.0000005258.31418.83}
+  {\path{doi:10.1023/B:DAMI.0000005258.31418.83}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1023/B:DAMI.0000005258.31418.83}
 
 \end{thebibliography}
