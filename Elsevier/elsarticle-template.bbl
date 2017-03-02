@@ -1,0 +1,33 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{oldmasp}
+O.~M. Soysal, Association rule mining with mostly associated sequential
+  patterns, Expert Systems with Applications 42~(5) (2015) 2582 -- 2592.
+\newblock \href
+  {http://dx.doi.org/http://dx.doi.org/10.1016/j.eswa.2014.10.049}
+  {\path{doi:http://dx.doi.org/10.1016/j.eswa.2014.10.049}}.
+
+\bibitem{fastapriori}
+R.~S. Rakesh~Agrawal, Fast algorithms for mining association rules, Proceedings
+  of the 20th VLDB Conference Santiago, Chile.
+
+\bibitem{ais}
+A.~S. "~R.~Agrawal", "T.~Imielinski", Mining association rules between sets of
+  items in large databases, ACM SIGMOD Conference on Management of Data,
+  Washington, D.C.
+
+\bibitem{setm}
+A.~S. "M.~Houtsma", Set-oriented mining of association rules, Research Report
+  RJ 9567, IBM Almaden Research Center, San Jose, California.
+
+\bibitem{fpgrowth}
+Y.~Y. "Jian Pei~", "Jiawei~Han", Mining frequent patterns without candidate
+  generation: A frequent-pattern tree approach, Data Mining and Knowledge
+  Discovery.
+
+\end{thebibliography}
