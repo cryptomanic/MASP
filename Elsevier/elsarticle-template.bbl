@@ -29,6 +29,27 @@ R.~Agrawal, T.~Imieli\'{n}ski, A.~Swami,
 M.~Houtsma, A.~Swami, Set-oriented mining of association rules, Research Report
   RJ 9567, IBM Almaden Research Center, San Jose, California.
 
+\bibitem{2darules}
+T.~Fukuda, Y.~Morimoto, S.~Morishita, T.~Tokuyama,
+  \href{http://doi.acm.org/10.1145/235968.233313}{Data mining using
+  two-dimensional optimized association rules: Scheme, algorithms, and
+  visualization}, SIGMOD Rec. 25~(2) (1996) 13--23.
+\newblock \href {http://dx.doi.org/10.1145/235968.233313}
+  {\path{doi:10.1145/235968.233313}}.
+\newline\urlprefix\url{http://doi.acm.org/10.1145/235968.233313}
+
+\bibitem{massociation}
+R.~Feldman, Y.~Aumann, A.~Amir, A.~Zilberstein, W.~Kloesgen, Maximal
+  association rules: a new tool for mining for keyword cooccurrences in
+  document collections.
+
+\bibitem{weightedassociation}
+C.~H. Cai, A.~W.~C. Fu, C.~H. Cheng, W.~W. Kwong, Mining association rules with
+  weighted items, in: Database Engineering and Applications Symposium, 1998.
+  Proceedings. IDEAS'98. International, 1998, pp. 68--77.
+\newblock \href {http://dx.doi.org/10.1109/IDEAS.1998.694360}
+  {\path{doi:10.1109/IDEAS.1998.694360}}.
+
 \bibitem{fpgrowth}
 J.~Han, J.~Pei, Y.~Yin, R.~Mao,
   \href{http://dx.doi.org/10.1023/B:DAMI.0000005258.31418.83}{Mining frequent

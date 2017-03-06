@@ -4,45 +4,46 @@ The top-level auxiliary file: elsarticle-template.aux
 The style file: elsarticle-num.bst
 Database file #1: mybibfile.bib
 Warning--empty journal in fastapriori
-You've used 5 entries,
+Warning--empty journal in massociation
+You've used 8 entries,
             2937 wiz_defined-function locations,
-            706 strings with 6078 characters,
-and the built_in function-call counts, 1540 in all, are:
-= -- 151
-> -- 41
-< -- 0
-+ -- 17
-- -- 12
-* -- 131
-:= -- 227
-add.period$ -- 8
-call.type$ -- 5
-change.case$ -- 5
+            726 strings with 6794 characters,
+and the built_in function-call counts, 2555 in all, are:
+= -- 242
+> -- 83
+< -- 1
++ -- 33
+- -- 25
+* -- 209
+:= -- 363
+add.period$ -- 13
+call.type$ -- 8
+change.case$ -- 8
 chr.to.int$ -- 0
-cite$ -- 6
-duplicate$ -- 41
-empty$ -- 162
-format.name$ -- 16
-if$ -- 377
+cite$ -- 10
+duplicate$ -- 75
+empty$ -- 271
+format.name$ -- 32
+if$ -- 639
 int.to.chr$ -- 0
-int.to.str$ -- 5
-missing$ -- 5
-newline$ -- 28
-num.names$ -- 5
-pop$ -- 28
+int.to.str$ -- 8
+missing$ -- 8
+newline$ -- 40
+num.names$ -- 8
+pop$ -- 50
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 84
+skip$ -- 151
 stack$ -- 0
-substring$ -- 102
-swap$ -- 12
-text.length$ -- 0
+substring$ -- 141
+swap$ -- 25
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 1
-while$ -- 12
-width$ -- 6
-write$ -- 52
-(There was 1 warning)
+warning$ -- 2
+while$ -- 19
+width$ -- 9
+write$ -- 80
+(There were 2 warnings)
