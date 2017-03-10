@@ -75,4 +75,19 @@ F.~Coenen, P.~Leng, S.~Ahmed, Data structure for association rule mining:
 \newblock \href {http://dx.doi.org/10.1109/TKDE.2004.8}
   {\path{doi:10.1109/TKDE.2004.8}}.
 
+\bibitem{genetic}
+P.~D. Shenoy, K.~G. Srinivasa, K.~R. Venugopal, L.~M. Patnaik,
+  \href{http://dl.acm.org/citation.cfm?id=1239098.1239101}{Dynamic association
+  rule mining using genetic algorithms}, Intell. Data Anal. 9~(5) (2005)
+  439--453.
+\newline\urlprefix\url{http://dl.acm.org/citation.cfm?id=1239098.1239101}
+
+\bibitem{dynamicarm}
+N.~Jiang, L.~Gruenwald,
+  \href{http://doi.acm.org/10.1145/1121995.1121998}{Research issues in data
+  stream association rule mining}, SIGMOD Rec. 35~(1) (2006) 14--19.
+\newblock \href {http://dx.doi.org/10.1145/1121995.1121998}
+  {\path{doi:10.1145/1121995.1121998}}.
+\newline\urlprefix\url{http://doi.acm.org/10.1145/1121995.1121998}
+
 \end{thebibliography}
