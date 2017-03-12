@@ -117,8 +117,23 @@ R.~Kuo, C.~Chao, Y.~Chiu, Application of particle swarm optimization to
   {http://dx.doi.org/http://dx.doi.org/10.1016/j.asoc.2009.11.023}
   {\path{doi:http://dx.doi.org/10.1016/j.asoc.2009.11.023}}.
 
+\bibitem{cloudarm}
+L.~Li, M.~Zhang, The strategy of mining association rule based on cloud
+  computing, in: 2011 International Conference on Business Computing and Global
+  Informatization, 2011, pp. 475--478.
+\newblock \href {http://dx.doi.org/10.1109/BCGIn.2011.125}
+  {\path{doi:10.1109/BCGIn.2011.125}}.
+
 \bibitem{minmizcandidt}
 S.~A. Abaya, Association rule mining based on apriori algorithm in minimizing
   candidate generation.
+
+\bibitem{armheart}
+J.~Nahar, T.~Imam, K.~S. Tickle, Y.-P.~P. Chen, Association rule mining to
+  detect factors which contribute to heart disease in males and females, Expert
+  Systems with Applications 40~(4) (2013) 1086 -- 1093.
+\newblock \href
+  {http://dx.doi.org/http://dx.doi.org/10.1016/j.eswa.2012.08.028}
+  {\path{doi:http://dx.doi.org/10.1016/j.eswa.2012.08.028}}.
 
 \end{thebibliography}
