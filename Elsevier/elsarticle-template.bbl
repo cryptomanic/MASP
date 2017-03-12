@@ -90,4 +90,35 @@ N.~Jiang, L.~Gruenwald,
   {\path{doi:10.1145/1121995.1121998}}.
 \newline\urlprefix\url{http://doi.acm.org/10.1145/1121995.1121998}
 
+\bibitem{classify}
+G.~Chen, H.~Liu, L.~Yu, Q.~Wei, X.~Zhang, A new approach to classification
+  based on association rule mining, Decision Support Systems 42~(2) (2006) 674
+  -- 689.
+\newblock \href {http://dx.doi.org/http://dx.doi.org/10.1016/j.dss.2005.03.005}
+  {\path{doi:http://dx.doi.org/10.1016/j.dss.2005.03.005}}.
+
+\bibitem{bookrecommend}
+Z.~Zhu, J.~Y. Wang, Book recommendation service by improved association rule
+  mining algorithm, in: 2007 International Conference on Machine Learning and
+  Cybernetics, Vol.~7, 2007, pp. 3864--3869.
+\newblock \href {http://dx.doi.org/10.1109/ICMLC.2007.4370820}
+  {\path{doi:10.1109/ICMLC.2007.4370820}}.
+
+\bibitem{exceptionrules}
+D.~Taniar, W.~Rahayu, V.~Lee, O.~Daly, Exception rules in association rule
+  mining, Applied Mathematics and Computation 205~(2) (2008) 735 -- 750.
+\newblock \href {http://dx.doi.org/http://dx.doi.org/10.1016/j.amc.2008.05.020}
+  {\path{doi:http://dx.doi.org/10.1016/j.amc.2008.05.020}}.
+
+\bibitem{swarmarm}
+R.~Kuo, C.~Chao, Y.~Chiu, Application of particle swarm optimization to
+  association rule mining, Applied Soft Computing 11~(1) (2011) 326 -- 336.
+\newblock \href
+  {http://dx.doi.org/http://dx.doi.org/10.1016/j.asoc.2009.11.023}
+  {\path{doi:http://dx.doi.org/10.1016/j.asoc.2009.11.023}}.
+
+\bibitem{minmizcandidt}
+S.~A. Abaya, Association rule mining based on apriori algorithm in minimizing
+  candidate generation.
+
 \end{thebibliography}
