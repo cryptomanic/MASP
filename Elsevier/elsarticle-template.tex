@@ -1,6 +1,7 @@
 \documentclass[review]{elsarticle}
 
 \usepackage{lineno,hyperref}
+\usepackage{graphicx}
 \modulolinenumbers[5]
 
 \journal{Expert Systems with Applications}
@@ -82,6 +83,48 @@ In 1994 R. Agrawal, et al. published non-trivial algorithm(Apriori) \cite{fastap
 
 \section{Method}
 Let \emph{I} be a universal set of items. A single transaction($\tau$) is defined as a non empty subset of universal itemset(\emph{I}). Mathematically, $ \tau = \lbrace $ \textit{item}: \textit{item} $ \epsilon $ \emph{I} $\rbrace$. A \textit{transaction database}($ \Gamma $) is a collection of such transactions. A rule of the form \emph{X} $ \Rightarrow $ \emph{Y} is said to be derived from the transaction database $ \Gamma $ iff \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{s} $(threshold support) and \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{c} $(threshold confidence) where \emph{X} and \emph{Y} are non empty subsets of \emph{I} and \emph{X} $ \cap $ \emph{Y} $ =\phi $. What does \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) mean? \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y})  is defined as probability of occurence of \emph{X} and \emph{Y} together in the transaction database($ \Gamma $). Mathematically, \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ $ \frac{Count(X \cup Y)}{Count(\phi)} $ where \emph{Count(Z)} $ = $ Number of transactions in $ \Gamma $ which are superset of \emph{Z}. \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) is the probabilty of occurence of \emph{Y} in those transactions of $ \Gamma $ which contains \emph{X} or \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ \emph{Probability(Y $ \vert $ X)} $ = $ $ \frac{Count(X \cup Y)}{Count(X)} $. Value of threshold support($ 0 \leq \tau _{s} \leq 1 $) and threshold confidence($ 0 \leq \tau _{c} \leq 1 $) is fixed before performing association rule mining.
+
+First, we will explain how to generate MASP tree before moving on to new approach. Some of the terminologies that will be helpful in undersanding the algorithm.
+
+\begin{enumerate}[1.]
+\item A \textbf{transaction $ \tau $} is defined as collection of unique items.
+\item A \textbf{transaction dataset $ \Gamma $} is a collection of many transactions. Properties to be satisfied by transaction dataset
+\begin{enumerate}[a)]
+\item Evey transactions in the transaction database must have same number of items.
+\item No duplicate items are allowed in rows of $ \Gamma $.
+\end{enumerate}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{pdf/validtrans}
+\end{center}
+\caption{Valid Transaction Dataset}
+\label{Fig 1}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{pdf/invalidtrans}
+\end{center}
+\caption{Invalid Transaction Dataset}
+\label{Fig 2}
+\end{figure}
+
+Transaction database \ref{Fig 1} is valid and \ref{Fig 2} is invalid(duplicate items(blue color) in \emph{T3}).
+
+\item MASP
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
 
 In our scenario
 Every transaction must contains equal number of items
