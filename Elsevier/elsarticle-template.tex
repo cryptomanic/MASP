@@ -2,6 +2,8 @@
 
 \usepackage{lineno,hyperref}
 \usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[linesnumbered,ruled]{algorithm2e}
 \modulolinenumbers[5]
 
 \journal{Expert Systems with Applications}
@@ -84,11 +86,11 @@ In 1994 R. Agrawal, et al. published non-trivial algorithm(Apriori) \cite{fastap
 \section{Method}
 Let \emph{I} be a universal set of items. A single transaction($\tau$) is defined as a non empty subset of universal itemset(\emph{I}). Mathematically, $ \tau = \lbrace $ \textit{item}: \textit{item} $ \epsilon $ \emph{I} $\rbrace$. A \textit{transaction database}($ \Gamma $) is a collection of such transactions. A rule of the form \emph{X} $ \Rightarrow $ \emph{Y} is said to be derived from the transaction database $ \Gamma $ iff \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{s} $(threshold support) and \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{c} $(threshold confidence) where \emph{X} and \emph{Y} are non empty subsets of \emph{I} and \emph{X} $ \cap $ \emph{Y} $ =\phi $. What does \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) mean? \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y})  is defined as probability of occurence of \emph{X} and \emph{Y} together in the transaction database($ \Gamma $). Mathematically, \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ $ \frac{Count(X \cup Y)}{Count(\phi)} $ where \emph{Count(Z)} $ = $ Number of transactions in $ \Gamma $ which are superset of \emph{Z}. \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) is the probabilty of occurence of \emph{Y} in those transactions of $ \Gamma $ which contains \emph{X} or \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ \emph{Probability(Y $ \vert $ X)} $ = $ $ \frac{Count(X \cup Y)}{Count(X)} $. Value of threshold support($ 0 \leq \tau _{s} \leq 1 $) and threshold confidence($ 0 \leq \tau _{c} \leq 1 $) is fixed before performing association rule mining.
 
-First, we will explain how to generate MASP tree before moving on to new approach. Some of the terminologies that will be helpful in undersanding the algorithm.
+First, we will explain how to generate \emph{OIMASP} tree before taking into account the origin of item in $ \Gamma $. Some of the terminologies that will be helpful in undersanding the algorithm.
 
 \begin{enumerate}[1.]
 \item A \textbf{transaction $ \tau $} is defined as collection of unique items.
-\item A \textbf{transaction dataset $ \Gamma $} is a collection of many transactions. Properties to be satisfied by transaction dataset
+\item A \textbf{transaction dataset $ \Gamma $} is a collection of many transactions. Constraints imposed on  transaction dataset
 \begin{enumerate}[a)]
 \item Evey transactions in the transaction database must have same number of items.
 \item No duplicate items are allowed in rows of $ \Gamma $.
@@ -112,23 +114,92 @@ First, we will explain how to generate MASP tree before moving on to new approac
 
 Transaction database \ref{Fig 1} is valid and \ref{Fig 2} is invalid(duplicate items(blue color) in \emph{T3}).
 
-\item MASP
-
-
+\item A sequence of items $ I = \{I_{1}, I_{2}, I_{3}, ..........., I_{n}\} $ will be an \emph{\textbf{OIMASP}} iff $ \forall $\emph{j} $ \in $ \{1, 2, ...., n\} the subset $ I' = \{I_{1}, I_{2}, ......., I_{j}\} $ must satisfy
+\begin{enumerate}[i)]
+\item $ support(I') \geq  \tau _{s} $
+\item $P(I_{j} \vert I_{1}, I_{2}, ......., I_{j-1}) \geq \tau _{c}$
+\item $P(I_{j} \vert I_{1}, I_{2}, ......., I_{j-1})$ is maximum.
 \end{enumerate}
 
+\item \textbf{Shuffle} is a function which takes transaction dataset, and an item as inputs and returns shuffled transaction dataset or \textbf{Shuffle}($ \Gamma $, \emph{I}) $ \rightarrow $ $ \Gamma _{shuffled} $. Shuffling is done in two steps
+\begin{enumerate}[i)]
+
+\begin{figure}
+\includegraphics[scale=0.242]{pdf/shuffle}
+\caption{Shuffling of dataset as per item \textbf{1}}
+\label{Fig 3}
+\end{figure}
+
+\item $ \forall $ rows if the specified item(\emph{I}) is present in the row then perform swapping to bring that item to the first column \ref{Fig 3}.
+\item Shuffle rows until there is no row left which contains item \emph{I} and appears below row which do not have item \emph{I} \ref{Fig 3}.
+\end{enumerate}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{pdf/tbtcb}
+\end{center}
+\caption{Splitting of $ \Gamma _{shuffled} $ into temporary order independent block and counter block}
+\label{Fig 4}
+\end{figure}
+
+\item Temporary Order Independent Block(\textbf{TOIB}): After shuffling is done w.r.t the specified item, first obtain a subset of $ \Gamma _{shuffled} $ by taking transactions having specified item and then in the second step remove the first column. This newly received dataset is \textbf{TOIB} \ref{Fig 4}.
+
+\item Temporary Order Independent Counter Block(\textbf{TOICB}): After shuffling is done w.r.t the specified item, the subset of $ \Gamma _{shuffled} $ obtained by taking transactions not having specified item is \textbf{TOICB} \ref{Fig 4}.
+
+\item \emph{\textbf{OIB}}: It is defined for $ OIMASP = \{I_{1}, I_{2}, I_{3}, ..........., I_{k}\}  $.
+
+\begin{algorithm}
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+    \underline{function generateOIB} $ (\Gamma, OIMASP, j) $\;
+    \Input{A transaction dataset $ \Gamma $, $ OIMASP $ sequence and pointer $ j $ to current item}
+    \Output{$ Order Independent Block $}
+    \If{j points to the last element of $ OIMASP $}
+      {
+        return $ TOIB(\Gamma, OIMASP[j]) $\;
+      }     
+    \eIf{negation is present on jth item of $ OIMASP $}
+      {
+        $ temp \leftarrow TOICB(\Gamma, OIMASP[j]) $\;
+		return $ generateOIB(temp, OIMASP, j+1) $
+      }
+      {
+		$ temp \leftarrow TOIB(\Gamma, OIMASP[j]) $\;
+		return $ generateOIB(temp, OIMASP, j+1) $
+      }      
+    \caption{Algorithm to generate Order Independent Block}
+\end{algorithm}
+
+\item Similarly \emph{\textbf{OICB}} is defined for $ OIMASP = \{I_{1}, I_{2}, I_{3}, ..........., I_{k}\}  $.
+
+\begin{algorithm}
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+    \underline{function generateOICB} $ (\Gamma, OIMASP, j) $\;
+    \Input{A transaction dataset $ \Gamma $, $ OIMASP $ sequence and pointer $ j $ to current item}
+    \Output{$ Order Independent Block $}
+    \If{j points to the last element of $ OIMASP $}
+      {
+        return $ TOICB(\Gamma, OIMASP[j]) $\;
+      }     
+    \eIf{negation is present on jth item of $ OIMASP $}
+      {
+        $ temp \leftarrow TOICB(\Gamma, OIMASP[j]) $\;
+		return $ generateOICB(temp, OIMASP, j+1) $
+      }
+      {
+		$ temp \leftarrow TOIB(\Gamma, OIMASP[j]) $\;
+		return $ generateOICB(temp, OIMASP, j+1) $
+      }      
+    \caption{Algorithm to generate Order Independent Counter Block}
+\end{algorithm}
+\end{enumerate}
+
+\subsection{How to generate OIMASP tree?}
 
 
-
-
-
-
-
-
-
-In our scenario
-Every transaction must contains equal number of items
-In every transaction items must be unique
 
 How to generate MASP tree?
 How rules are extracted from MASP tree?
