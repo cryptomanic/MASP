@@ -198,8 +198,43 @@ Transaction database \ref{Fig 1} is valid and \ref{Fig 2} is invalid(duplicate i
 \end{enumerate}
 
 \subsection{How to generate OIMASP tree?}
+In this section we have proposed an algorithm(OIMASP)[modified version of MASP \cite{oldmasp}] which is independent of the ordering of items in transactions of transaction database.
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.4]{pdf/itemfreq}
+\end{center}
+\caption{Transaction table on the left and items and their frequencies on the right}
+\label{Fig 5}
+\end{figure}
 
+Initially we have the transaction table(\ref{Fig 5}), threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $. Steps to generate OIMASP tree
+\begin{enumerate}[Step 1.]
+\item Initialize a tree having root node named as \emph{ROOT}. Transaction database associated with 
+the root node is shown on the left in \ref{Fig 5}. Frequency table for the root node is shown on the right in \ref{Fig 5}.  Initially current node is the root node itself. Notation, $ \vert \Gamma \vert $ = number of rows in the transaction table associated with the root node and $ \vert \Gamma_{current} \vert $ = number of rows in the transaction table associated with the current node.
+\item Draw the frequency table for the data associated with the current node.
+\item Find the item having maximum frequency. Suppose item $ I $ is found to have the maximum frequency of $ f_{max} $.
+\item If (support = $ \dfrac{f_{max}}{\vert \Gamma \vert} $) $ < \tau _{s} $ then return.
+\item If (confidence = $ \dfrac{f_{max}}{\vert \Gamma_{current} \vert} $) $ < \tau _{c} $ then return.
+\item Add a node on the left side of the current node. Name the new node(on the left) as $ I $ and associate data obtained from $ TOIB(\Gamma_{current}, I) $ with it.
+\item Add a node on the right side of the current node. Name the new node(on the right) as $ ~I $ and associate data obtained from $ TOICB(\Gamma_{current}, I) $ with it.
+\item Run Step 9 and Step 10 independently.
+\item Mark the new node created in the Step 6 as the current node and then repeat from Step 2.
+\item Mark the new node created in the Step 7 as the current node and then repeat from Step 2.
+\item Return.
+\end{enumerate}
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.3]{pdf/transition}
+\end{center}
+\caption{Generation of OIMASP tree as the algorithm proceeds}
+\label{Fig 6}
+\end{figure}
+
+If we apply the \emph{OIMASP} algorithm mentioned above for the transaction dataset shown in \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $, we will get the final \emph{OIMASP} tree in series of transitions as shown in \ref{Fig 6}.
+
+\subsection{Modified version of OIMASP(MOIMASP) which takes into account origins of items in the transaction database}
 
 How to generate MASP tree?
 How rules are extracted from MASP tree?
