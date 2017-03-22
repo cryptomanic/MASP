@@ -234,20 +234,59 @@ the root node is shown on the left in \ref{Fig 5}. Frequency table for the root 
 
 If we apply the \emph{OIMASP} algorithm mentioned above for the transaction dataset shown in \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $, we will get the final \emph{OIMASP} tree in series of transitions as shown in \ref{Fig 6}.
 
+\subsection{How to generate association rules out of OIMASP tree?}
+\newdefinition{rmk}{Definition}
+\begin{rmk}
+	Given $ OIMASP = \{I_{1}, I_{2}, I_{3}, ..........., I_{k}\} $. Then $ \forall j $ $ \in $ $ \lbrace 2, 3, 4, 		..., k \rbrace $ $ (I_{1}, I_{2}, ..., I_{j-1})$ $ \Rightarrow (I_{j}) $ will be an association rule.		
+\end{rmk}
+
+A path from the root to the leaf of the \emph{OIMASP} tree will be an \emph{OIMASP}. Therefore, there can be multiple \emph{OIMASP}. An OIMASP and its corresponding association rules is shown in \ref{Fig 7}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{pdf/oimasp}
+\end{center}
+\caption{An OIMASP(in green) and corresponding association rules}
+\label{Fig 7}
+\end{figure}
+
 \subsection{Modified version of OIMASP(MOIMASP) which takes into account origins of items in the transaction database}
+In this section, we will discuss the second modification to the \emph{MASP} algorithm proposed in \cite{oldmasp}. What if we want to generate those association rules which contains item $ I $? Our idea is to find the row starting from the top row of the transaction dataset in which item $ I $ appears for the first time(say $ ith $ row). Then for generating the $ OIMASP $ tree we will consider $ ith $ transaction and transactions afterward. Then generate all association rules and add only those rules to the solution set which contains item $ I $. It can be done for every unique element of $ \Gamma $ and finally take the union of solution sets obtained for each unique items to get the global solution set of association rules.
 
-How to generate MASP tree?
-How rules are extracted from MASP tree?
+We will apply this algorithm for transaction dataset in (\ref{Fig 5}), threshold support($ \tau _{s} $) $ = 0.2 $, threshold confidence($ \tau _{c} $) $ = 0.3 $ and item $ = 10 $.
 
-New approach: order independent + first occurence
-How to generate multiple MASP tree
-Many Rules obtained from MASP trees are discarded
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{pdf/partition}
+\end{center}
+\caption{Partition of dataset based on the origin of item $ 10 $}
+\label{Fig 8}
+\end{figure}
 
-Provide Definition of new terms
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{pdf/moimasp}
+\end{center}
+\caption{An OIMASP tree}
+\label{Fig 9}
+\end{figure}
 
-Apply Multiple Masp Tree and hence rules generation based on an example.
-Provide algorithms
+\begin{enumerate}[Step 1.]
+\item A subdataset(consists of $ 5th $ and $ 6th $ row as shown in \ref{Fig 8}) is obtained based on the origin of item $ 10 $.
+\item Apply \emph{OIMASP} tree generation algorithm on the new dataset to obtain \ref{Fig 9}.
+\item Find association rules which conains item $ 10 $(see \ref{Fig 10}). Add rules obtained to the global solution set.
+\item Repeat these steps for other items too.
+\end{enumerate}
 
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.35]{pdf/arules10}
+\end{center}
+\caption{Association rules containing item $ 10 $}
+\label{Fig 10}
+\end{figure}
+
+Mention the complete algorithm which takes into account order-independent improvement and origin of items to generate set of association rules.
 
 \section*{References}
 
