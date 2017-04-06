@@ -311,14 +311,26 @@ We will apply this algorithm for transaction dataset in (\ref{Fig 5}), threshold
             generate $ OIMASP $ tree for dataset $ = $ $ \Gamma[itemOrigin:N] $ and given $ \tau _{s} $, $ 				\tau _{c} $
           }	
           
-		generate all association rules from $ OIMASP $ tree having origin $ = itemOrigin $, which contains 			item $ currentItem$ and add these to $ globalRules $
+		generate all association rules from $ OIMASP $ tree having origin $ = itemOrigin $, which contains 			item $ currentItem $ and add these to $ globalRules $
 	  }
 	          		
 	return $ globalRules $;      
     \caption{MOIMASP Algorithm}
 \end{algorithm}
 
-\subsection{Space and Time Complexity Analysis}
+\subsection{Complexity of MOIMASP algorithm}
+The complexity of the \emph{MASP} algorithm \cite{oldmasp} is $ \Theta(NMlog(NM)) $. After the first improvement(OIMASP) complexity remains the same. In the final algorithm(\emph{MOIMASP}) \emph{OIMASP} can be called at max N times, so the complexity will be $ \displaystyle\sum_{i=1}^{N} \Theta(iMlog(iM)) = \Theta(N^{2}Mlog(NM)) $.
+
+\section{Experiments and results}
+The old approach and the new approach are compared using five datasets namely \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/A.csv}{A}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/B.csv}{B}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/C.csv}{C}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/D.csv}{D}, and \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/E.csv}{E}. Metrics used for comparison are maximum rule size and the total number of rules generated. As you can see in \ref{Fig 11} that the new approach outperforms the old approach concerning number of rules generated and longest rule size. The amount of information obtained from the dataset has suppressed the increase in time complexity.
+
+\begin{figure}
+\begin{center}
+\includegraphics[scale=0.30]{pdf/comparison}
+\end{center}
+\caption{Comparison of \emph{MASP} and \emph{MOIMASP}}
+\label{Fig 11}
+\end{figure}
 
 \section*{References}
 
