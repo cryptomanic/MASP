@@ -92,15 +92,15 @@ This approach may produce different outcomes if we change the order of items in 
 In 1994 R. Agrawal, et al. published non-trivial algorithm(Apriori) \cite{fastapriori} for finding association rules in large databases of the sales transaction. Apriori algorithm produces association rules in two steps. First generates all frequent itemsets(prune non-frequent candidate itemsets) and then make rules from those itemsets. This algorithm first finds frequent itemsets of length one then frequent itemsets of length 2 using frequent itemsets of length 1 and so on until generation of all frequent itemsets. This algorithm gave the better result than the previously known fundamental algorithms AIS \cite{ais}, SETM \citep{setm}. In 1996 Fukuda, et al. \cite{2darules} proposed an approach to find two-dimensional association rules. A state in this scenario is of the form ((X, Y) $\in$ P) $\Rightarrow$ (Z = z) where X and Y are numeric attributes, P is a subspace of 2-D plane, and Z is boolean attribute i.e. z can be either true or false. E.g. (Age $\in$ [30, 50] $\wedge$ Balance $\in$ [10$^{5}$, 10$^{6}$]) $\Rightarrow$ (CardLoan = yes). It means if a bank user age and balance lies in the given subspace it is very likely that they will use card loan. This approach works for specific types of structured data. R. Feldman, et al.(1997) \cite{massociation} introduced the notion of maximal association rules. These are the rules extracted from frequent maximal itemsets. Frequent maximal itemsets are those itemsets which appear just once among all transactions. It is useful in finding association rules containing negated attributes. As an example a rule \{milk, $\neg$bread\} $\Rightarrow$ \{$\neg$butter\} contains negated attributes. It means if a user purchases milk but not bread then the probability that the user will not buy butter is very high. This approach helps to capture inference rules which might be lost using regular associations. Till now items in transaction databases were treated uniformly. In 1998 C.H. Cai, et al. \cite{weightedassociation} gave an approach to find association rules which take into account weight(importance) of items in transaction databases. FP-Growth algorithm(2000) \cite{fpgrowth} also take two steps. The second phase is same as apriori. FP-Growth does not generate candidate frequent itemsets. First, it creates a tree(FP-Tree) and then finds frequent itemsets. This algorithm is about an order of magnitude faster than the Apriori algorithm. Lin, Weiyang, et al. \cite{Lin2002} proposed an approach that uses association rule mining for collaborative recommender systems. This approach does not require threshold support value. Instead, based on the number of rules(given) to be generated, threshold support is decided by the system. Thus it reduced the running time and produced enough rules for good recommendation performance. In 2004 F. Conen, et al. \cite{ptree} proposed two structures(T-Trees and P-Trees) which offer improvement concerning storage and execution time. In 2005 K. G. Srinivasa, et al. \cite{genetic} took advantage of genetic algorithms principles to generate large itemsets within dynamic transaction database. Their algorithm was better than the pre-existing FUP and E-Apriori concerning execution time and scalability. If transaction database is static, then life will be easy. In other scenario transaction database keeps on changing at high speed leading to change in data distribution. Hence it will be difficult to apply previously mentioned Association Rule Mining techniques. Jiang, et al.(2006) \cite{dynamicarm} came up with an approach to overcome this difficulty. In the same year G. Chen, et al. \cite{classify} used association rule mining for solving classification problems. It gave satisfactory results when compared to existing classification algorithms like C4.5, CBA, SVM, NN. Modification in traditional algorithm(apriori) was done \cite{bookrecommend} for building book recommendation system based on the data obtained from historical data of university library. Association rules having low support and high confidence are exception rules. In 2008 D. Taniar, et al. \cite{exceptionrules} proposed a new approach to finding exception rules. First, generate candidate exception rules and based on exceptionality measure obtain final ruleset. The quality of association rules depends on the threshold value of support and confidence. R.J. Kuo, et al.(2011) \cite{swarmarm} proposed an approach to find best threshold values which can produce quality rules. It gave promising results when compared to the genetic algorithm. Cloud computing provides an efficient and cheap way to store and analyze data. In 2011 L. Li, et al. \cite{cloudarm} proposed an effective strategy to perform association rule mining(frequent itemset mining) in cloud computing environment. Apriori \cite{fastapriori} generates candidate frequent itemsets before generating the desired itemsets. The modified algorithm(2012) \cite{minmizcandidt} minimizes the candidate itemsets generation. With the passage of time Association Rule Mining find its role in many applications. J. Nahar, et al.(2013) \cite{armheart} proposed a way to detect factors that can contribute to heart diseases in males and females. To enhance the quality of association rule mining researchers suggested to include factors such as value utility, temporal, etc. G. Maragatham, et al.(2015) \cite{utarm} have proposed an efficient algorithm which combines both utility and temporal time periods for mining extraordinary association rules. Their results show that UTARM(Utility-Based Temporal Association Rule Mining) algorithm efficiently discovers the utility-oriented temporal association rules. In 2016 O. M. Soysal, et al. \cite{sparseds} proposed a data structure for sparse memory allocation for parallel and sequential data mining. They have used this data structure on apriori-TID, MASP-tree, and FP-growth algorithms to reduce memory allocation cost. They concluded that the speed-up in apriori-TID is more than FP-growth and the modified MASP algorithm becomes 3.42 times faster than the old implementation \cite{oldmasp}.
 
 \section{Method}
-Let \emph{I} be a universal set of items. A single transaction($\tau$) is defined as a non empty subset of universal itemset(\emph{I}). Mathematically, $ \tau = \lbrace $ \textit{item}: \textit{item} $ \epsilon $ \emph{I} $\rbrace$. A \textit{transaction database}($ \Gamma $) is a collection of such transactions. A rule of the form \emph{X} $ \Rightarrow $ \emph{Y} is said to be derived from the transaction database $ \Gamma $ iff \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{s} $(threshold support) and \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{c} $(threshold confidence) where \emph{X} and \emph{Y} are non empty subsets of \emph{I} and \emph{X} $ \cap $ \emph{Y} $ =\phi $. What does \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) mean? \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y})  is defined as probability of occurence of \emph{X} and \emph{Y} together in the transaction database($ \Gamma $). Mathematically, \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ $ \frac{Count(X \cup Y)}{Count(\phi)} $ where \emph{Count(Z)} $ = $ Number of transactions in $ \Gamma $ which are superset of \emph{Z}. \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) is the probabilty of occurence of \emph{Y} in those transactions of $ \Gamma $ which contains \emph{X} or \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ \emph{Probability(Y $ \vert $ X)} $ = $ $ \frac{Count(X \cup Y)}{Count(X)} $. Value of threshold support($ 0 \leq \tau _{s} \leq 1 $) and threshold confidence($ 0 \leq \tau _{c} \leq 1 $) is fixed before performing association rule mining.
+Let \emph{I} be a universal set of items. A single transaction($\tau$) is a non-empty subset of universal itemset(\emph{I}). Mathematically, $ \tau = \lbrace $ \textit{item}: \textit{item} $ \epsilon $ \emph{I} $\rbrace$. A \textit{transaction database}($ \Gamma $) is a collection of such transactions. A rule of the form \emph{X} $ \Rightarrow $ \emph{Y} must satisfy \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{s} $(threshold support) and \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ \geq \tau _{c} $(threshold confidence) where \emph{X} and \emph{Y} are non-empty subsets of \emph{I} and \emph{X} $ \cap $ \emph{Y} $ =\phi $. What does \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) mean? \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y})  is defined as the probability of occurrence of \emph{X} and \emph{Y} together in the transaction database($ \Gamma $). Mathematically, \emph{support}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ $ \frac{Count(X \cup Y)}{Count(\phi)} $ where \emph{Count(Z)} $ = $ Number of transactions in $ \Gamma $ which are superset of \emph{Z}. \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) is the probability of occurrence of \emph{Y} in those transactions of $ \Gamma $ which contains \emph{X} or \emph{confidence}(\emph{X} $ \Rightarrow $ \emph{Y}) $ = $ \emph{Probability(Y $ \vert $ X)} $ = $ $ \frac{Count(X \cup Y)}{Count(X)} $. Fix the value of threshold support($ 0 \leq \tau _{s} \leq 1 $) and threshold confidence($ 0 \leq \tau _{c} \leq 1 $) before performing association rule mining.
 
-First, we will explain how to generate \emph{OIMASP} tree before taking into account the origin of item in $ \Gamma $. Some of the terminologies that will be helpful in undersanding the algorithm.
+First, we will explain how to generate \emph{OIMASP} tree before taking into account the origin of the item in $ \Gamma $. Some of the terminologies that will be helpful in understanding the algorithm.
 
 \begin{enumerate}[1.]
-\item A \textbf{transaction $ \tau $} is defined as collection of unique items.
-\item A \textbf{transaction dataset $ \Gamma $} is a collection of many transactions. Constraints imposed on  transaction dataset
+\item A \textbf{transaction $ \tau $} is a collection of unique items.
+\item A \textbf{transaction dataset $ \Gamma $} is a compilation of many transactions. Constraints imposed on  transaction dataset
 \begin{enumerate}[a)]
-\item Evey transactions in the transaction database must have same number of items.
+\item Every row in the transaction database must have the same number of items.
 \item No duplicate items are allowed in rows of $ \Gamma $.
 \end{enumerate}
 
@@ -120,7 +120,7 @@ First, we will explain how to generate \emph{OIMASP} tree before taking into acc
 \label{Fig 2}
 \end{figure}
 
-Transaction database \ref{Fig 1} is valid and \ref{Fig 2} is invalid(duplicate items(blue color) in \emph{T3}).
+Transaction database \ref{Fig 1} is valid, and \ref{Fig 2} is invalid(duplicate items(blue color) in \emph{T3}).
 
 \item A sequence of items $ I = \{I_{1}, I_{2}, I_{3}, ..........., I_{n}\} $ will be an \emph{\textbf{OIMASP}} iff $ \forall $\emph{j} $ \in $ \{1, 2, ...., n\} the subset $ I' = \{I_{1}, I_{2}, ......., I_{j}\} $ must satisfy
 \begin{enumerate}[i)]
@@ -138,7 +138,7 @@ Transaction database \ref{Fig 1} is valid and \ref{Fig 2} is invalid(duplicate i
 \label{Fig 3}
 \end{figure}
 
-\item $ \forall $ rows if the specified item(\emph{I}) is present in the row then perform swapping to bring that item to the first column \ref{Fig 3}.
+\item $ \forall $ rows, if the specified item(\emph{I}) is present in the row then perform swapping to bring that item to the first column \ref{Fig 3}.
 \item Shuffle rows until there is no row left which contains item \emph{I} and appears below row which do not have item \emph{I} \ref{Fig 3}.
 \end{enumerate}
 
@@ -179,7 +179,7 @@ Transaction database \ref{Fig 1} is valid and \ref{Fig 2} is invalid(duplicate i
     \caption{Algorithm to generate Order Independent Block}
 \end{algorithm}
 
-\item Similarly \emph{\textbf{OICB}} is defined for $ OIMASP = \{I_{1}, I_{2}, I_{3}, ..........., I_{k}\}  $.
+\item Similarly, \emph{\textbf{OICB}} is defined for $ OIMASP = \{I_{1}, I_{2}, I_{3}, ..........., I_{k}\}  $.
 
 \begin{algorithm}
     \SetKwInOut{Input}{Input}
@@ -206,7 +206,7 @@ Transaction database \ref{Fig 1} is valid and \ref{Fig 2} is invalid(duplicate i
 \end{enumerate}
 
 \subsection{How to generate OIMASP tree?}
-In this section we have proposed an algorithm(OIMASP)[modified version of MASP \cite{oldmasp}] which is independent of the ordering of items in transactions of transaction database.
+In this section, we have proposed an algorithm(OIMASP)[modified version of MASP \cite{oldmasp}] which is independent of the ordering of items in transactions of the transaction database.
 
 \begin{figure}
 \begin{center}
@@ -219,16 +219,16 @@ In this section we have proposed an algorithm(OIMASP)[modified version of MASP \
 Initially we have the transaction table(\ref{Fig 5}), threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $. Steps to generate OIMASP tree
 \begin{enumerate}[Step 1.]
 \item Initialize a tree having root node named as \emph{ROOT}. Transaction database associated with 
-the root node is shown on the left in \ref{Fig 5}. Frequency table for the root node is shown on the right in \ref{Fig 5}.  Initially current node is the root node itself. Notation, $ \vert \Gamma \vert $ = number of rows in the transaction table associated with the root node and $ \vert \Gamma_{current} \vert $ = number of rows in the transaction table associated with the current node.
+the root node is shown on the left in \ref{Fig 5}. Frequency table for the root node is shown on the right in \ref{Fig 5}.  Initially, the current node is the root node itself. Notation, $ \vert \Gamma \vert $ = the number of rows in the transaction table associated with the root node and $ \vert \Gamma_{current} \vert $ = number of rows in the transaction table linked to the current node.
 \item Draw the frequency table for the data associated with the current node.
-\item Find the item having maximum frequency. Suppose item $ I $ is found to have the maximum frequency of $ f_{max} $.
+\item Find the item having the maximum frequency. Suppose item $ I $ is found to have the highest frequency of $ f_{max} $.
 \item If (support = $ \dfrac{f_{max}}{\vert \Gamma \vert} $) $ < \tau _{s} $ then return.
 \item If (confidence = $ \dfrac{f_{max}}{\vert \Gamma_{current} \vert} $) $ < \tau _{c} $ then return.
 \item Add a node on the left side of the current node. Name the new node(on the left) as $ I $ and associate data obtained from $ TOIB(\Gamma_{current}, I) $ with it.
 \item Add a node on the right side of the current node. Name the new node(on the right) as $ ~I $ and associate data obtained from $ TOICB(\Gamma_{current}, I) $ with it.
 \item Run Step 9 and Step 10 independently.
-\item Mark the new node created in the Step 6 as the current node and then repeat from Step 2.
-\item Mark the new node created in the Step 7 as the current node and then repeat from Step 2.
+\item Mark the new node created in Step 6 as the current node and then repeat from Step 2.
+\item Mark the new node created in Step 7 as the current node and then repeat from Step 2.
 \item Return.
 \end{enumerate}
 
@@ -259,7 +259,7 @@ A path from the root to the leaf of the \emph{OIMASP} tree will be an \emph{OIMA
 \end{figure}
 
 \subsection{Modified version of OIMASP(MOIMASP) which takes into account origins of items in the transaction database}
-In this section, we will discuss the second modification to the \emph{MASP} algorithm proposed in \cite{oldmasp}. What if we want to generate those association rules which contains item $ I $? Our idea is to find the row starting from the top row of the transaction dataset in which item $ I $ appears for the first time(say $ ith $ row). Then for generating the $ OIMASP $ tree we will consider $ ith $ transaction and transactions afterward. Then generate all association rules and add only those rules to the solution set which contains item $ I $. It can be done for every unique element of $ \Gamma $ and finally take the union of solution sets obtained for each unique items to get the global solution set of association rules.
+In this section, we will discuss the second modification to the \emph{MASP} algorithm proposed in \cite{oldmasp}. What if we want to generate those association rules which contains item $ I $? Our idea is to find the row starting from the top row of the transaction dataset in which item $ I $ appears for the first time(say $ ith $ row). Then for generating the $ OIMASP $ tree, we will consider $ ith $ transaction and transactions afterward. Then generate all association rules and add only those rules to the solution set which contains item $ I $. It can be done for every unique element of $ \Gamma $ and finally take the union of solution sets obtained for each unique items to get the global solution set of association rules.
 
 We will apply this algorithm for transaction dataset in (\ref{Fig 5}), threshold support($ \tau _{s} $) $ = 0.2 $, threshold confidence($ \tau _{c} $) $ = 0.3 $ and item $ = 10 $.
 
@@ -327,7 +327,7 @@ We will apply this algorithm for transaction dataset in (\ref{Fig 5}), threshold
 \end{algorithm}
 
 \subsection{Complexity of MOIMASP algorithm}
-The complexity of the \emph{MASP} algorithm \cite{oldmasp} is $ \Theta(NMlog(NM)) $. After the first improvement(OIMASP) complexity remains the same. In the final algorithm(\emph{MOIMASP}) \emph{OIMASP} can be called at max N times, so the complexity will be $ \displaystyle\sum_{i=1}^{N} \Theta(iMlog(iM)) = \Theta(N^{2}Mlog(NM)) $.
+The complexity of the \emph{MASP} algorithm \cite{oldmasp} is $ \Theta(NMlog(NM)) $. After the first improvement(OIMASP) complexity remains the same. In the concluding algorithm(\emph{MOIMASP}) \emph{OIMASP} can be called at max N times so that the complexity will be $ \displaystyle\sum_{i=1}^{N} \Theta(iMlog(iM)) = \Theta(N^{2}Mlog(NM)) $.
 
 \section{Experiments and results}
 The old approach and the new approach are compared using five datasets namely \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/A.csv}{A}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/B.csv}{B}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/C.csv}{C}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/D.csv}{D}, and \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/E.csv}{E}. Metrics used for comparison are maximum rule size and the total number of rules generated. As you can see in \ref{Fig 11} that the new approach outperforms the old approach concerning number of rules generated and longest rule size. The amount of information obtained from the dataset has suppressed the increase in time complexity.
