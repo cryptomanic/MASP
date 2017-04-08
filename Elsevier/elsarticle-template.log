@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.23)  8 APR 2017 23:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.23)  9 APR 2017 00:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -427,19 +427,19 @@ File: pdf/firstimprove.pdf Graphic file (type pdf)
 Package pdftex.def Info: pdf/firstimprove.pdf used on input line 83.
 (pdftex.def)             Requested size: 316.18369pt x 265.29317pt.
  [2 <./pdf/firstimprove.pdf>] [3] [4] [5]
-<pdf/validtrans.pdf, id=129, 399.4925pt x 251.94125pt>
+<pdf/validtrans.pdf, id=129, 391.4625pt x 251.94125pt>
 File: pdf/validtrans.pdf Graphic file (type pdf)
 
 <use pdf/validtrans.pdf>
 Package pdftex.def Info: pdf/validtrans.pdf used on input line 109.
-(pdftex.def)             Requested size: 159.79416pt x 100.7747pt.
+(pdftex.def)             Requested size: 156.58221pt x 100.7747pt.
 
-<pdf/invalidtrans.pdf, id=130, 396.48125pt x 251.94125pt>
+<pdf/invalidtrans.pdf, id=130, 391.4625pt x 251.94125pt>
 File: pdf/invalidtrans.pdf Graphic file (type pdf)
 
 <use pdf/invalidtrans.pdf>
 Package pdftex.def Info: pdf/invalidtrans.pdf used on input line 117.
-(pdftex.def)             Requested size: 158.58968pt x 100.7747pt.
+(pdftex.def)             Requested size: 156.58221pt x 100.7747pt.
  [6 <./pdf/validtrans.pdf> <./pdf/invalidtrans.pdf>]
 <pdf/shuffle.pdf, id=147, 1426.32875pt x 254.9525pt>
 File: pdf/shuffle.pdf Graphic file (type pdf)
@@ -453,11 +453,11 @@ File: pdf/tbtcb.pdf Graphic file (type pdf)
 Package pdftex.def Info: pdf/tbtcb.pdf used on input line 147.
 (pdftex.def)             Requested size: 283.66194pt x 134.00165pt.
  [7 <./pdf/shuffle.pdf> <./pdf/tbtcb.pdf>]
-<pdf/itemfreq.pdf, id=176, 809.0225pt x 484.81125pt>
+<pdf/itemfreq.pdf, id=176, 809.0225pt x 488.82625pt>
 File: pdf/itemfreq.pdf Graphic file (type pdf)
  <use pdf/itemfreq.pdf>
 Package pdftex.def Info: pdf/itemfreq.pdf used on input line 213.
-(pdftex.def)             Requested size: 323.60327pt x 193.92105pt.
+(pdftex.def)             Requested size: 323.60327pt x 195.52702pt.
 
 [8] [9 <./pdf/itemfreq.pdf>]
 Overfull \hbox (0.33371pt too wide) in paragraph at lines 221--223
@@ -482,23 +482,23 @@ r/m/n/10 4\OML/cmm/m/it/10 ; :::; k\OMS/cmsy/m/n/10 g$
  []
 
 [10] [11 <./pdf/transition.pdf>]
-<pdf/oimasp.pdf, id=248, 895.345pt x 501.875pt>
+<pdf/oimasp.pdf, id=248, 926.46124pt x 501.875pt>
 File: pdf/oimasp.pdf Graphic file (type pdf)
  <use pdf/oimasp.pdf>
 Package pdftex.def Info: pdf/oimasp.pdf used on input line 255.
-(pdftex.def)             Requested size: 313.37544pt x 175.65887pt.
+(pdftex.def)             Requested size: 324.26628pt x 175.65887pt.
 
 Overfull \hbox (14.00766pt too wide) in paragraph at lines 264--265
 []\OT1/cmr/m/n/10 We will ap-ply this al-go-rithm for trans-ac-tion dataset in 
 ([]6[]), thresh-old support($\OML/cmm/m/it/10 ^^\[]$\OT1/cmr/m/n/10 )
  []
 
-[12 <./pdf/oimasp.pdf>] <pdf/partition.pdf, id=259, 894.34125pt x 320.19624pt>
+[12 <./pdf/oimasp.pdf>] <pdf/partition.pdf, id=259, 967.615pt x 323.2075pt>
 File: pdf/partition.pdf Graphic file (type pdf)
 
 <use pdf/partition.pdf>
 Package pdftex.def Info: pdf/partition.pdf used on input line 268.
-(pdftex.def)             Requested size: 313.02412pt x 112.07036pt.
+(pdftex.def)             Requested size: 338.67033pt x 113.12431pt.
  <pdf/moimasp.pdf, id=260, 799.98875pt x 828.09375pt>
 File: pdf/moimasp.pdf Graphic file (type pdf)
 
@@ -564,7 +564,7 @@ e1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zapfding/uzdr
 .pfb>
-Output written on elsarticle-template.pdf (19 pages, 535324 bytes).
+Output written on elsarticle-template.pdf (19 pages, 537421 bytes).
 PDF statistics:
  487 PDF objects out of 1000 (max. 8388607)
  427 compressed objects within 5 object streams
