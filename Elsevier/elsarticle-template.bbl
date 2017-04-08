@@ -136,4 +136,22 @@ J.~Nahar, T.~Imam, K.~S. Tickle, Y.-P.~P. Chen, Association rule mining to
   {http://dx.doi.org/http://dx.doi.org/10.1016/j.eswa.2012.08.028}
   {\path{doi:http://dx.doi.org/10.1016/j.eswa.2012.08.028}}.
 
+\bibitem{utarm}
+G.~Maragatham, M.~Lakshmi,
+  \href{http://dx.doi.org/10.1504/IJKEDM.2015.071293}{Utarm: An efficient
+  algorithm for mining of utility-oriented temporal association rules}, Int. J.
+  Knowl. Eng. Data Min. 3~(2) (2015) 208--237.
+\newblock \href {http://dx.doi.org/10.1504/IJKEDM.2015.071293}
+  {\path{doi:10.1504/IJKEDM.2015.071293}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1504/IJKEDM.2015.071293}
+
+\bibitem{sparseds}
+O.~M. Soysal, E.~Gupta, H.~Donepudi,
+  \href{http://dx.doi.org/10.1007/s11227-015-1566-x}{A sparse memory allocation
+  data structure for sequential and parallel association rule mining}, J.
+  Supercomput. 72~(2) (2016) 347--370.
+\newblock \href {http://dx.doi.org/10.1007/s11227-015-1566-x}
+  {\path{doi:10.1007/s11227-015-1566-x}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1007/s11227-015-1566-x}
+
 \end{thebibliography}
