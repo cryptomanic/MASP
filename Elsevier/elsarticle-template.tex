@@ -107,7 +107,7 @@ First, we will explain how to generate $ OIMASP $ tree before taking into accoun
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.4]{pdf/validtrans}
+\includegraphics[scale=0.3]{pdf/validtrans}
 \end{center}
 \caption{Valid Transaction Dataset}
 \label{Fig 1}
@@ -115,7 +115,7 @@ First, we will explain how to generate $ OIMASP $ tree before taking into accoun
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.4]{pdf/invalidtrans}
+\includegraphics[scale=0.3]{pdf/invalidtrans}
 \end{center}
 \caption{Invalid Transaction Dataset}
 \label{Fig 2}
@@ -155,6 +155,8 @@ Transaction database \ref{Fig 1} is valid, and \ref{Fig 2} is invalid(duplicate 
 
 \item Temporary Order Independent Counter Block(\textbf{TOICB})\textbf{:} After shuffling is done w.r.t the specified item, the subset of $ \Gamma _{shuffled} $ obtained by taking transactions not having specified item is \textbf{TOICB} \ref{Fig 4}.
 
+\item \textbf{Frequency Table:} A table which stores the frequency of items. In \ref{Fig 5} the frequency table corresponding to the transaction table is shown on the right. $ f_{max} $ is the maximum frequency in the frequency table. $ I_{max} $ is the item having frequency $ f_{max} $. If multiple items have frequency $ f_{max} $, then $ I_{max} $ can be any of them.
+
 \begin{algorithm}
     \SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
@@ -181,31 +183,45 @@ Transaction database \ref{Fig 1} is valid, and \ref{Fig 2} is invalid(duplicate 
 \end{enumerate}
 
 \subsection{How to generate OIMASP tree?}
-In this section, we have proposed an algorithm(OIMASP)[modified version of MASP \cite{oldmasp}] which is independent of the ordering of items in transactions of the transaction database.
+In this section, we have proposed an algorithm($ OIMASP $)[modified version of MASP \cite{oldmasp}] which is independent of the ordering of items in transactions.
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.4]{pdf/itemfreq}
+\includegraphics[scale=0.3]{pdf/itemfreq}
 \end{center}
 \caption{Transaction table on the left and items and their frequencies on the right}
 \label{Fig 5}
 \end{figure}
 
-Initially we have the transaction table(\ref{Fig 5}), threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $. Steps to generate OIMASP tree
-\begin{enumerate}[Step 1.]
-\item Initialize a tree having root node named as \emph{ROOT}. Transaction database associated with 
-the root node is shown on the left in \ref{Fig 5}. Frequency table for the root node is shown on the right in \ref{Fig 5}.  Initially, the current node is the root node itself. Notation, $ \vert \Gamma \vert $ = the number of rows in the transaction table associated with the root node and $ \vert \Gamma_{current} \vert $ = number of rows in the transaction table linked to the current node.
-\item Draw the frequency table for the data associated with the current node.
-\item Find the item having the maximum frequency. Suppose item $ I $ is found to have the highest frequency of $ f_{max} $.
-\item If (support = $ \dfrac{f_{max}}{\vert \Gamma \vert} $) $ < \tau _{s} $ then return.
-\item If (confidence = $ \dfrac{f_{max}}{\vert \Gamma_{current} \vert} $) $ < \tau _{c} $ then return.
-\item Add a node on the left side of the current node. Name the new node(on the left) as $ I $ and associate data obtained from $ TOIB(\Gamma_{current}, I) $ with it.
-\item Add a node on the right side of the current node. Name the new node(on the right) as $ ~I $ and associate data obtained from $ TOICB(\Gamma_{current}, I) $ with it.
-\item Run Step 9 and Step 10 independently.
-\item Mark the new node created in Step 6 as the current node and then repeat from Step 2.
-\item Mark the new node created in Step 7 as the current node and then repeat from Step 2.
-\item Return.
-\end{enumerate}
+\begin{algorithm}
+    \SetKwInOut{Input}{Input}
+    \SetKwInOut{Output}{Output}
+
+    \underline{function OIMASP} $ (\Gamma_{current}, Node) $\;
+    \Input{A transaction dataset $ \Gamma_{current} $ associated with the $ Node $ of the $ OIMASP $ tree}
+    \Output{An $ OIMASP $ tree}
+    Obtain the frequency table of $ \Gamma_{current} $\\
+    Find the item $ I_{max} $ having maximum frequency $ f_{max} $\\
+    \If{(support = $ \dfrac{f_{max}}{\vert \Gamma \vert} $) $ < \tau _{s} $}
+      {
+        return
+      }     
+    \If{(confidence = $ \dfrac{f_{max}}{\vert \Gamma_{current} \vert} $) $ < \tau _{c} $}
+      {
+        return
+      }
+    Add a node on the left side of $ Node $ say $ Node_{left} $ and store $ I_{max} $ in it\\
+    
+    Add a node $ Node_{right} $ on the right side of $ Node $ and store  $ \sim I_{max} $ in it\\
+    
+    $ \Gamma_{left} = TOIB(\Gamma_{current}, I_{max}) $\\
+    $ \Gamma_{right} = TOICB(\Gamma_{current}, I_{max}) $\\
+    
+    $ OIMASP(\Gamma_{left}, Node_{left}) $\\
+    $ OIMASP(\Gamma_{right}, Node_{right}) $\\
+    return
+    \caption{Algorithm to generate $ OIMASP $ tree. $ \Gamma $ is the input transaction database, $ \vert \Gamma \vert $ is the number of rows in $ \Gamma $, $ \tau_{s} $ is the threshold support, and $ \tau_{c} $ is the threshold confidence.}
+\end{algorithm}
 
 \begin{figure}
 \begin{center}
@@ -215,7 +231,7 @@ the root node is shown on the left in \ref{Fig 5}. Frequency table for the root 
 \label{Fig 6}
 \end{figure}
 
-If we apply the \emph{OIMASP} algorithm mentioned above for the transaction dataset shown in \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $, we will get the final \emph{OIMASP} tree in series of transitions as shown in \ref{Fig 6}.
+If we apply the $ OIMASP $ algorithm for the transaction dataset shown in \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $, we will get the final $ OIMASP $ tree in series of transitions as shown in \ref{Fig 6}.
 
 \subsection{How to generate association rules out of OIMASP tree?}
 \newdefinition{rmk}{Definition}
@@ -233,7 +249,7 @@ A path from the root to the leaf of the \emph{OIMASP} tree will be an \emph{OIMA
 \label{Fig 7}
 \end{figure}
 
-\subsection{Modified version of OIMASP(MOIMASP) which takes into account origins of items in the transaction database}
+\subsection{Modified version of OIMASP(OOIMASP) which takes into account origins of items in the transaction database}
 In this section, we will discuss the second modification to the \emph{MASP} algorithm proposed in \cite{oldmasp}. What if we want to generate those association rules which contains item $ I $? Our idea is to find the row starting from the top row of the transaction dataset in which item $ I $ appears for the first time(say $ ith $ row). Then for generating the $ OIMASP $ tree, we will consider $ ith $ transaction and transactions afterward. Then generate all association rules and add only those rules to the solution set which contains item $ I $. It can be done for every unique element of $ \Gamma $ and finally take the union of solution sets obtained for each unique items to get the global solution set of association rules.
 
 We will apply this algorithm for transaction dataset in (\ref{Fig 5}), threshold support($ \tau _{s} $) $ = 0.2 $, threshold confidence($ \tau _{c} $) $ = 0.3 $ and item $ = 10 $.
@@ -269,13 +285,13 @@ We will apply this algorithm for transaction dataset in (\ref{Fig 5}), threshold
 \label{Fig 10}
 \end{figure}
 
-\textbf{Discussion:} If we generate $ OIMASP $ tree for all the items in the transaction database, then $ OIMASP $ tree generation algorithm will be called multiple numbers of times($ = $number of unique items in the dataset). It is possible that multiple items may have the same origin hence no need for redundancy(same $ OIMASP $ tree generation multiple times). Avoiding the redundancy can help us to less $ OIMASP $ tree production. In the worst case $ N $(total number of transactions) OIMASP tree will be generated.
+\textbf{Discussion:} If we generate $ OIMASP $ tree for all the items in the transaction database, then $ OIMASP $ tree generation algorithm will be called multiple numbers of times($ = $number of unique items in the dataset). It is possible that multiple items may have the same origin hence no need for redundancy(same $ OIMASP $ tree generation multiple times). Avoiding the redundancy can led to fewer $ OIMASP $ tree production. In the worst case $ N $(total number of transactions) OIMASP tree will be generated.
 
 \begin{algorithm}
     \SetKwInOut{Input}{Input}
     \SetKwInOut{Output}{Output}
 
-    \underline{function MOIMASP} $ (\Gamma, \tau _{s}, \tau _{c}) $\;
+    \underline{function OOIMASP} $ (\Gamma, \tau _{s}, \tau _{c}) $\;
     \Input{A transaction dataset $ \Gamma [N][M] $, threshold support $ \tau _{s} $ and 
 	       threshold confidence $ \tau _{c} $}
     \Output{$ association\ rules $}
@@ -298,11 +314,11 @@ We will apply this algorithm for transaction dataset in (\ref{Fig 5}), threshold
 	  }
 	          		
 	return $ globalRules $;      
-    \caption{MOIMASP Algorithm}
+    \caption{OOIMASP Algorithm}
 \end{algorithm}
 
-\subsection{Complexity of MOIMASP algorithm}
-The complexity of the \emph{MASP} algorithm \cite{oldmasp} is $ \Theta(NMlog(NM)) $. After the first improvement(OIMASP) complexity remains the same. In the concluding algorithm(\emph{MOIMASP}) \emph{OIMASP} can be called at max N times so that the complexity will be $ \displaystyle\sum_{i=1}^{N} \Theta(iMlog(iM)) = \Theta(N^{2}Mlog(NM)) $.
+\subsection{Complexity of OOIMASP algorithm}
+The complexity of the \emph{MASP} algorithm \cite{oldmasp} is $ \Theta(NMlog(NM)) $. After the first improvement(OIMASP) complexity remains the same. In the concluding algorithm(\emph{OOIMASP}) \emph{OIMASP} can be called at max N times so that the complexity will be $ \displaystyle\sum_{i=1}^{N} \Theta(iMlog(iM)) = \Theta(N^{2}Mlog(NM)) $.
 
 \section{Experiments and results}
 The old approach and the new approach are compared using five datasets namely \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/A.csv}{A}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/B.csv}{B}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/C.csv}{C}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/D.csv}{D}, and \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/E.csv}{E}. Metrics used for comparison are maximum rule size and the total number of rules generated. As you can see in \ref{Fig 11} that the new approach outperforms the old approach concerning number of rules generated and longest rule size. The amount of information obtained from the dataset has suppressed the increase in time complexity.
@@ -311,7 +327,7 @@ The old approach and the new approach are compared using five datasets namely \h
 \begin{center}
 \includegraphics[scale=0.30]{pdf/comparison}
 \end{center}
-\caption{Comparison of \emph{MASP} and \emph{MOIMASP}}
+\caption{Comparison of \emph{MASP} and \emph{OOIMASP}}
 \label{Fig 11}
 \end{figure}
 

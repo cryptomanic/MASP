@@ -3,6 +3,6 @@
 \BOOKMARK [1][-]{section.3}{Method}{}% 3
 \BOOKMARK [2][-]{subsection.3.1}{How to generate OIMASP tree?}{section.3}% 4
 \BOOKMARK [2][-]{subsection.3.2}{How to generate association rules out of OIMASP tree?}{section.3}% 5
-\BOOKMARK [2][-]{subsection.3.3}{Modified version of OIMASP\(MOIMASP\) which takes into account origins of items in the transaction database}{section.3}% 6
-\BOOKMARK [2][-]{subsection.3.4}{Complexity of MOIMASP algorithm}{section.3}% 7
+\BOOKMARK [2][-]{subsection.3.3}{Modified version of OIMASP\(OOIMASP\) which takes into account origins of items in the transaction database}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.4}{Complexity of OOIMASP algorithm}{section.3}% 7
 \BOOKMARK [1][-]{section.4}{Experiments and results}{}% 8
