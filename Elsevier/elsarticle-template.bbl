@@ -128,6 +128,14 @@ L.~Li, M.~Zhang, The strategy of mining association rule based on cloud
 S.~A. Abaya, Association rule mining based on apriori algorithm in minimizing
   candidate generation.
 
+\bibitem{Tseng:2013:MFI}
+F.-C. Tseng, \href{http://dx.doi.org/10.1016/j.eswa.2012.09.005}{Mining
+  frequent itemsets in large databases: The hierarchical partitioning
+  approach}, Expert Syst. Appl. 40~(5) (2013) 1654--1661.
+\newblock \href {http://dx.doi.org/10.1016/j.eswa.2012.09.005}
+  {\path{doi:10.1016/j.eswa.2012.09.005}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1016/j.eswa.2012.09.005}
+
 \bibitem{armheart}
 J.~Nahar, T.~Imam, K.~S. Tickle, Y.-P.~P. Chen, Association rule mining to
   detect factors which contribute to heart disease in males and females, Expert
@@ -135,6 +143,25 @@ J.~Nahar, T.~Imam, K.~S. Tickle, Y.-P.~P. Chen, Association rule mining to
 \newblock \href
   {http://dx.doi.org/http://dx.doi.org/10.1016/j.eswa.2012.08.028}
   {\path{doi:http://dx.doi.org/10.1016/j.eswa.2012.08.028}}.
+
+\bibitem{Wu:2012:MTH}
+C.~W. Wu, B.-E. Shie, V.~S. Tseng, P.~S. Yu,
+  \href{http://doi.acm.org/10.1145/2339530.2339546}{Mining top-k high utility
+  itemsets}, in: Proceedings of the 18th ACM SIGKDD International Conference on
+  Knowledge Discovery and Data Mining, KDD '12, ACM, New York, NY, USA, 2012,
+  pp. 78--86.
+\newblock \href {http://dx.doi.org/10.1145/2339530.2339546}
+  {\path{doi:10.1145/2339530.2339546}}.
+\newline\urlprefix\url{http://doi.acm.org/10.1145/2339530.2339546}
+
+\bibitem{Yun:HUI}
+U.~Yun, H.~Ryang, K.~H. Ryu,
+  \href{http://dx.doi.org/10.1016/j.eswa.2013.11.038}{High utility itemset
+  mining with techniques for reducing overestimated utilities and pruning
+  candidates}, Expert Syst. Appl. 41~(8) (2014) 3861--3878.
+\newblock \href {http://dx.doi.org/10.1016/j.eswa.2013.11.038}
+  {\path{doi:10.1016/j.eswa.2013.11.038}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1016/j.eswa.2013.11.038}
 
 \bibitem{utarm}
 G.~Maragatham, M.~Lakshmi,

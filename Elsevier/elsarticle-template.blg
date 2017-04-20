@@ -6,45 +6,45 @@ Database file #1: mybibfile.bib
 Warning--empty journal in fastapriori
 Warning--empty journal in massociation
 Warning--empty journal in minmizcandidt
-You've used 21 entries,
+You've used 24 entries,
             2937 wiz_defined-function locations,
-            829 strings with 9626 characters,
-and the built_in function-call counts, 7205 in all, are:
-= -- 719
-> -- 210
-< -- 4
-+ -- 84
-- -- 63
-* -- 612
-:= -- 972
-add.period$ -- 37
-call.type$ -- 21
-change.case$ -- 21
+            857 strings with 10438 characters,
+and the built_in function-call counts, 8444 in all, are:
+= -- 852
+> -- 237
+< -- 5
++ -- 95
+- -- 71
+* -- 725
+:= -- 1130
+add.period$ -- 43
+call.type$ -- 24
+change.case$ -- 24
 chr.to.int$ -- 0
-cite$ -- 24
-duplicate$ -- 212
-empty$ -- 773
-format.name$ -- 82
-if$ -- 1835
+cite$ -- 27
+duplicate$ -- 252
+empty$ -- 913
+format.name$ -- 92
+if$ -- 2155
 int.to.chr$ -- 0
-int.to.str$ -- 21
-missing$ -- 21
-newline$ -- 95
-num.names$ -- 21
-pop$ -- 120
+int.to.str$ -- 24
+missing$ -- 24
+newline$ -- 110
+num.names$ -- 24
+pop$ -- 140
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 425
+skip$ -- 491
 stack$ -- 0
-substring$ -- 456
-swap$ -- 83
-text.length$ -- 4
+substring$ -- 542
+swap$ -- 101
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 3
-while$ -- 51
-width$ -- 23
-write$ -- 212
+while$ -- 61
+width$ -- 26
+write$ -- 247
 (There were 3 warnings)
