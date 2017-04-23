@@ -82,6 +82,13 @@ P.~D. Shenoy, K.~G. Srinivasa, K.~R. Venugopal, L.~M. Patnaik,
   439--453.
 \newline\urlprefix\url{http://dl.acm.org/citation.cfm?id=1239098.1239101}
 
+\bibitem{Srinivas:1994:GAS}
+M.~Srinivas, L.~M. Patnaik, \href{http://dx.doi.org/10.1109/2.294849}{Genetic
+  algorithms: A survey}, Computer 27~(6) (1994) 17--26.
+\newblock \href {http://dx.doi.org/10.1109/2.294849}
+  {\path{doi:10.1109/2.294849}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1109/2.294849}
+
 \bibitem{dynamicarm}
 N.~Jiang, L.~Gruenwald,
   \href{http://doi.acm.org/10.1145/1121995.1121998}{Research issues in data
