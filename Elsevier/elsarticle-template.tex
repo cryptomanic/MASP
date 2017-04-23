@@ -253,7 +253,8 @@ If we apply the $ OIMASP $ algorithm for the transaction dataset shown in Figure
 	Given $ OIMASP = \{I_{1}, I_{2}, I_{3}, ..........., I_{k}\} $. Then $ \forall j $ $ \in $ $ \lbrace 2, 3, 4, 		..., k \rbrace $ $ (I_{1}, I_{2}, ..., I_{j-1})$ $ \Rightarrow (I_{j}) $ will be an association rule.		
 \end{rmk}
 
-A path from the root to the leaf of the \emph{OIMASP} tree will be an \emph{OIMASP}. Therefore, there can be multiple \emph{OIMASP}. An OIMASP and its corresponding association rules is shown in Figure \ref{Fig 7}.
+A path from the root to the leaf of the \emph{OIMASP} tree will be an \emph{OIMASP}. Therefore, there can be multiple \emph{OIMASP}. An OIMASP and its corresponding association rules is shown in Figure \ref{Fig 7}. In Figure \ref{Fig 7}, $ OIMASP $ chosen is $ (\sim 6, 1, 3) $. Association rules obtained using the above definition are 
+$ (\sim 6) \Rightarrow (1) $ and $ (\sim 6, 1) \Rightarrow (3) $.
 
 \begin{figure*}
 \begin{center}
@@ -290,6 +291,8 @@ We will apply this algorithm for transaction dataset in Figure \ref{Fig 5}, thre
 \item Find association rules which conains item $ 10 $(Figure \ref{Fig 10}). Add rules obtained to the global solution set.
 \item Repeat these steps for other items too.
 \end{enumerate}
+
+For the OIMASP tree in Figure \ref{Fig 9}, generate association rules for all $ OIMASPs $ having item $ 10 $(as done in Figure \ref{Fig 7}) and discard those rules which do not contain item $ 10 $ to obtain final ruleset as shown in Figure \ref{Fig 10}.
 
 \begin{figure}
 \begin{center}
