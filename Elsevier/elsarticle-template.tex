@@ -1,4 +1,4 @@
-\documentclass[review]{elsarticle}
+\documentclass[3p, twocolumn]{elsarticle}
 
 \usepackage{lineno,hyperref}
 \usepackage{graphicx}
@@ -79,13 +79,13 @@ Association rule mining is a rule-based machine learning procedure to find inter
 
 In 2014 O. M. Soyal, et al. \cite{oldmasp} proposed a new approach to extract mostly associated sequential patterns (MASPs) using less computational resources in terms of time and memory while generating a long sequence of patterns that have the highest co-occurrence.
 
-\begin{figure}
+\begin{figure*}
 \begin{center}
 \includegraphics[scale=0.30]{pdf/firstimprove}
 \end{center}
 \caption{Differnt \emph{MASP} tree for the same dataset}
 \label{Fig 12}
-\end{figure}
+\end{figure*}
 
 This approach may produce different outcomes if we change the order of items in transactions. Figure \ref{Fig 12} shows this issue. In Figure \ref{Fig 12} the MASP tree changes with the change in the order of items in transactions for threshold support 0.50 and threshold confidence 0.20. We propose an approach which is order independent. An association rule of the form \textit{A} $\Rightarrow$ \textit{B} must satisfy the threshold support and threshold confidence i.e. probability of occurrence of \textit{A} and \textit{B} together must surpass threshold support, and the likelihood of occurrence of \textit{B} in transactions containing \textit{A} must be greater than or equal to threshold confidence. It means, to calculate support and confidence, it is required to traverse complete transaction database. What if an item appears for the first time in the $ ith $ transaction? It is biased to take the entire dataset for calculating support and confidence for the rules containing that particular item. So to generate all rules containing a particular item x, it is reasonable to ignore all transactions(for calculating support and confidence) that come before the transaction in which that particular item appears for the first time. Taking into account the origin of the item is the second contribution. Embedding these two changes to the Omer M. Soyal \cite{oldmasp} approach is the basis of our research.\\
 \\
@@ -145,23 +145,25 @@ Transaction database \ref{Fig 1} is valid, and \ref{Fig 2} is invalid(duplicate 
 \item \textbf{Shuffle:} It is a function which takes transaction dataset, and an item as inputs and returns shuffled transaction dataset or \textbf{Shuffle}($ \Gamma $, \emph{I}) $ \rightarrow $ $ \Gamma _{shuffled} $. Shuffling is done in two steps
 \begin{enumerate}[i)]
 
-\begin{figure}
-\includegraphics[scale=0.242]{pdf/shuffle}
-\caption{Shuffling of dataset as per item \textbf{1}}
-\label{Fig 3}
-\end{figure}
-
 \item $ \forall $ rows, if the specified item($ I $) is present in the row then perform swapping to bring that item to the first column(Figure \ref{Fig 3}).
 \item Shuffle rows until there is no row left which contains item $ I $ and appears below row which do not have item $ I $(Figure \ref{Fig 3}).
 \end{enumerate}
 
-\begin{figure}
+\begin{figure*}
+\begin{center}
+\includegraphics[scale=0.242]{pdf/shuffle}
+\end{center}
+\caption{Shuffling of dataset as per item \textbf{1}}
+\label{Fig 3}
+\end{figure*}
+
+\begin{figure*}
 \begin{center}
 \includegraphics[scale=0.3]{pdf/tbtcb}
 \end{center}
 \caption{Splitting of $ \Gamma _{shuffled} $ into temporary order independent block and counter block}
 \label{Fig 4}
-\end{figure}
+\end{figure*}
 
 \item Temporary Order Independent Block(\textbf{TOIB})\textbf{:} After shuffling is done w.r.t the specified item, first obtain a subset of $ \Gamma _{shuffled} $ by taking transactions having specified item and then in the second step remove the first column. This newly received dataset is \textbf{TOIB}(Figure \ref{Fig 4}).
 
@@ -199,7 +201,7 @@ In this section, we have proposed an algorithm($ OIMASP $)[modified version of M
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.3]{pdf/itemfreq}
+\includegraphics[scale=0.25]{pdf/itemfreq}
 \end{center}
 \caption{Transaction table on the left and items and their frequencies on the right}
 \label{Fig 5}
@@ -235,13 +237,13 @@ In this section, we have proposed an algorithm($ OIMASP $)[modified version of M
     \caption{Algorithm to generate $ OIMASP $ tree. $ \Gamma $ is the input transaction database, $ \vert \Gamma \vert $ is the number of rows in $ \Gamma $, $ \tau_{s} $ is the threshold support, and $ \tau_{c} $ is the threshold confidence.}
 \end{algorithm}
 
-\begin{figure}
+\begin{figure*}
 \begin{center}
 \includegraphics[scale=0.3]{pdf/transition}
 \end{center}
 \caption{Generation of OIMASP tree as the algorithm proceeds}
 \label{Fig 6}
-\end{figure}
+\end{figure*}
 
 If we apply the $ OIMASP $ algorithm for the transaction dataset shown in Figure \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $, we will get the final $ OIMASP $ tree in series of transitions as shown in Figure \ref{Fig 6}.
 
@@ -253,30 +255,30 @@ If we apply the $ OIMASP $ algorithm for the transaction dataset shown in Figure
 
 A path from the root to the leaf of the \emph{OIMASP} tree will be an \emph{OIMASP}. Therefore, there can be multiple \emph{OIMASP}. An OIMASP and its corresponding association rules is shown in Figure \ref{Fig 7}.
 
-\begin{figure}
+\begin{figure*}
 \begin{center}
 \includegraphics[scale=0.35]{pdf/oimasp}
 \end{center}
 \caption{An OIMASP(in green) and corresponding association rules}
 \label{Fig 7}
-\end{figure}
+\end{figure*}
 
 \subsection{Modified version of OIMASP(OOIMASP) which takes into account origins of items in the transaction database}
 In this section, we will discuss our second contribution which is addressed by modifying the \emph{MASP} algorithm proposed in \cite{oldmasp}. What if we want to generate those association rules which contains item $ I $? Our idea is to find the row starting from the top row of the transaction dataset in which item $ I $ appears for the first time(say $ ith $ row). Then for generating the $ OIMASP $ tree, we will consider $ ith $ transaction and transactions there after. Then we generate all the association rules and add only those rules to the solution set which contains item $ I $. It can be done for every unique element of $ \Gamma $ and finally take the union of solution sets obtained for each unique items to get the global solution set of association rules.
 
 We will apply this algorithm for transaction dataset in Figure \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $, threshold confidence($ \tau _{c} $) $ = 0.3 $ and item $ = 10 $.
 
-\begin{figure}
+\begin{figure*}
 \begin{center}
 \includegraphics[scale=0.35]{pdf/partition}
 \end{center}
 \caption{Partition of dataset based on the origin of item $ 10 $}
 \label{Fig 8}
-\end{figure}
+\end{figure*}
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.35]{pdf/moimasp}
+\includegraphics[scale=0.25]{pdf/moimasp}
 \end{center}
 \caption{An OIMASP tree}
 \label{Fig 9}
@@ -333,15 +335,16 @@ We will apply this algorithm for transaction dataset in Figure \ref{Fig 5}, thre
 The complexity of the \emph{MASP} algorithm \cite{oldmasp} is $ \Theta(NMlog(NM)) $. After the first improvement(OIMASP) complexity remains the same. In the concluding algorithm(\emph{OOIMASP}) \emph{OIMASP} can be called at max N times so that the complexity will be $ \displaystyle\sum_{i=1}^{N} \Theta(iMlog(iM)) = \Theta(N^{2}Mlog(NM)) $.
 
 \section{Experiments and results}
-The old approach and the new approach are compared using five datasets namely \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/A.csv}{A}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/B.csv}{B}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/C.csv}{C}, \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/D.csv}{D}, and \href{https://github.com/cryptomanic/MOIMASP-datasets/blob/master/E.csv}{E}. Metrics used for comparison are maximum rule size and the total number of rules generated. As you can see in Figure \ref{Fig 11} that the new approach outperforms the old approach w.r.t number of rules generated and longest rule size. The amount of information obtained from the dataset has suppressed the increase in time complexity.
 
-\begin{figure}
+The old approach and the new approach are compared using five datasets\footnote{\label{datasetlink} https://github.com/cryptomanic/OOIMASP-datasets} namely A, B, C, D and E. Metrics used for comparison are maximum rule size and the total number of rules generated. As you can see in Figure \ref{Fig 11} that the new approach outperforms the old approach w.r.t number of rules generated and longest rule size. The amount of information obtained from the dataset has suppressed the increase in time complexity.
+
+\begin{figure*}
 \begin{center}
 \includegraphics[scale=0.30]{pdf/comparison}
 \end{center}
 \caption{Comparison of \emph{MASP} and \emph{OOIMASP}}
 \label{Fig 11}
-\end{figure}
+\end{figure*}
 
 \section*{References}
 
