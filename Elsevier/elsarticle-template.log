@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.23)  24 APR 2017 05:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.2.23)  24 APR 2017 05:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -426,22 +426,22 @@ e
 * hratio: 1:1
 * vratio: 1:1
 * modes: 
-* h-part:(L,W,R)=(64.75394pt, 468.0pt, 64.75394pt)
-* v-part:(T,H,B)=(111.52342pt, 622.0pt, 111.52342pt)
+* h-part:(L,W,R)=(37.75394pt, 522.0pt, 37.75394pt)
+* v-part:(T,H,B)=(81.52342pt, 682.0pt, 81.52342pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=468.0pt
-* \textheight=622.0pt
-* \oddsidemargin=-7.51605pt
-* \evensidemargin=-7.51605pt
-* \topmargin=-22.74657pt
+* \textwidth=522.0pt
+* \textheight=682.0pt
+* \oddsidemargin=-34.51605pt
+* \evensidemargin=-34.51605pt
+* \topmargin=-52.74657pt
 * \headheight=50.0pt
 * \headsep=12.0pt
 * \topskip=10.0pt
 * \footskip=18.0pt
 * \marginparwidth=4.0pt
 * \marginparsep=10.0pt
-* \columnsep=24.0pt
+* \columnsep=18.0pt
 * \skip\footins=24.0pt plus 2.0pt minus 12.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -489,42 +489,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
  []
 
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [2 <./pdf/firstimprove.pdf>] [3] <pdf/validtrans.pdf, id=130, 391.4625pt x 251
-.94125pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [2 <./pdf/firstimprove.pdf>]
+Underfull \hbox (badness 1803) in paragraph at lines 105--106
+\OT1/cmr/m/n/10 proach(Hierarchical Par-ti-tion-ing) to per-form fre-quent
+ []
+
+
+Underfull \hbox (badness 1253) in paragraph at lines 114--115
+\OT1/cmr/m/n/10 trans-ac-tions. Con-straints im-posed on trans-ac-tion
+ []
+
+<pdf/validtrans.pdf, id=116, 391.4625pt x 251.94125pt>
 File: pdf/validtrans.pdf Graphic file (type pdf)
 
 <use pdf/validtrans.pdf>
 Package pdftex.def Info: pdf/validtrans.pdf used on input line 122.
 (pdftex.def)             Requested size: 117.43965pt x 75.58295pt.
 
-<pdf/invalidtrans.pdf, id=131, 391.4625pt x 251.94125pt>
+<pdf/invalidtrans.pdf, id=117, 391.4625pt x 251.94125pt>
 File: pdf/invalidtrans.pdf Graphic file (type pdf)
 
 <use pdf/invalidtrans.pdf>
 Package pdftex.def Info: pdf/invalidtrans.pdf used on input line 130.
 (pdftex.def)             Requested size: 117.43965pt x 75.58295pt.
 
+Underfull \hbox (badness 4205) in paragraph at lines 136--137
+[]\OT1/cmr/m/n/10 Transaction database []2[] is valid, and []3[] is in-
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 138--139
 []\OT1/cmr/bx/n/10 OIMASP: \OT1/cmr/m/n/10 A se-quence of items $\OML/cmm/m/it/
 10 I \OT1/cmr/m/n/10 =
  []
 
-<pdf/shuffle.pdf, id=136, 1426.32875pt x 254.9525pt>
+
+Underfull \hbox (badness 1107) in paragraph at lines 138--139
+\OMS/cmsy/m/n/10 f\OML/cmm/m/it/10 I[]; I[]; I[]; :::::::::::; I[]\OMS/cmsy/m/n
+/10 g$ \OT1/cmr/m/n/10 will be an \OT1/cmr/bx/n/10 OIMASP \OT1/cmr/m/n/10 iff $
+\OMS/cmsy/m/n/10 8\OML/cmm/m/it/10 j$
+ []
+
+[3] <pdf/shuffle.pdf, id=147, 1426.32875pt x 254.9525pt>
 File: pdf/shuffle.pdf Graphic file (type pdf)
  <use pdf/shuffle.pdf>
 Package pdftex.def Info: pdf/shuffle.pdf used on input line 154.
 (pdftex.def)             Requested size: 345.17699pt x 61.69946pt.
 
-<pdf/tbtcb.pdf, id=137, 945.5325pt x 446.66875pt>
+<pdf/tbtcb.pdf, id=148, 945.5325pt x 446.66875pt>
 File: pdf/tbtcb.pdf Graphic file (type pdf)
  <use pdf/tbtcb.pdf>
 Package pdftex.def Info: pdf/tbtcb.pdf used on input line 162.
@@ -535,201 +556,126 @@ Underfull \hbox (badness 10000) in paragraph at lines 170--171
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
+Underfull \hbox (badness 1590) in paragraph at lines 170--171
 \OT1/cmr/m/n/10 Block(\OT1/cmr/bx/n/10 TOICB\OT1/cmr/m/n/10 )\OT1/cmr/bx/n/10 :
- \OT1/cmr/m/n/10 Af-ter shuf-fling is done
+ \OT1/cmr/m/n/10 Af-ter shuf-fling is done w.r.t the
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 170--171
-\OT1/cmr/m/n/10 ob-tained by tak-ing trans-ac-tions not hav-ing
+Underfull \hbox (badness 3364) in paragraph at lines 170--171
+\OT1/cmr/m/n/10 tak-ing trans-ac-tions not hav-ing spec-i-fied item is
  []
 
-[4 <./pdf/validtrans.pdf> <./pdf/invalidtrans.pdf>]
+
 Underfull \hbox (badness 10000) in paragraph at lines 200--201
 []\OT1/cmr/m/n/10 In this sec-tion, we have pro-posed an
  []
 
-<pdf/itemfreq.pdf, id=170, 809.0225pt x 488.82625pt>
+
+Underfull \hbox (badness 3312) in paragraph at lines 200--201
+\OT1/cmr/m/n/10 algorithm($\OML/cmm/m/it/10 OIMASP$\OT1/cmr/m/n/10 )[modified v
+er-sion of MASP [[]]]
+ []
+
+<pdf/itemfreq.pdf, id=153, 809.0225pt x 488.82625pt>
 File: pdf/itemfreq.pdf Graphic file (type pdf)
  <use pdf/itemfreq.pdf>
 Package pdftex.def Info: pdf/itemfreq.pdf used on input line 204.
 (pdftex.def)             Requested size: 202.25513pt x 122.20625pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 237--237
-[]\OT1/cmr/bx/n/10 Algorithm 2: \OT1/cmr/m/n/10 Al-go-rithm to gen-er-ate
- []
-
-
-Underfull \hbox (badness 1845) in paragraph at lines 237--237
-\OML/cmm/m/it/10 OIMASP$ \OT1/cmr/m/n/10 tree. $^^@$ is the in-put trans-ac-
- []
-
-<pdf/transition.pdf, id=171, 1018.80624pt x 1555.8125pt>
+<pdf/transition.pdf, id=154, 1018.80624pt x 1555.8125pt>
 File: pdf/transition.pdf Graphic file (type pdf)
 
 <use pdf/transition.pdf>
 Package pdftex.def Info: pdf/transition.pdf used on input line 242.
 (pdftex.def)             Requested size: 305.64423pt x 466.74736pt.
-
-Underfull \hbox (badness 1931) in paragraph at lines 250--250
-[]\OT1/cmr/m/it/10 How to gen-er-ate as-so-ci-a-tion rules out of
- []
-
+ [4 <./pdf/validtrans.pdf> <./pdf/invalidtrans.pdf> <./pdf/itemfreq.pdf>]
 \c@rmk=\count138
+ <pdf/oimasp.pdf, id=198, 926.46124pt x 501.875pt>
+File: pdf/oimasp.pdf Graphic file (type pdf)
 
-Underfull \hbox (badness 10000) in paragraph at lines 253--254
-[]\OT1/cmr/m/n/10 Given $\OML/cmm/m/it/10 OIMASP \OT1/cmr/m/n/10 =
+<use pdf/oimasp.pdf>
+Package pdftex.def Info: pdf/oimasp.pdf used on input line 262.
+(pdftex.def)             Requested size: 324.26628pt x 175.65887pt.
+
+Underfull \hbox (badness 3039) in paragraph at lines 268--268
+[]\OT1/cmr/m/it/10 Modified ver-sion of OIMASP(OOIMASP) which
  []
 
 [5 <./pdf/shuffle.pdf> <./pdf/tbtcb.pdf>] [6 <./pdf/transition.pdf>]
-<pdf/oimasp.pdf, id=213, 926.46124pt x 501.875pt>
-File: pdf/oimasp.pdf Graphic file (type pdf)
- <use pdf/oimasp.pdf>
-Package pdftex.def Info: pdf/oimasp.pdf used on input line 261.
-(pdftex.def)             Requested size: 324.26628pt x 175.65887pt.
-
-Underfull \hbox (badness 5260) in paragraph at lines 267--267
-[]\OT1/cmr/m/it/10 Modified ver-sion of OIMASP(OOIMASP)
+Underfull \hbox (badness 1087) in paragraph at lines 271--272
+\OT1/cmr/m/n/10 in Fig-ure []6[], thresh-old support($\OML/cmm/m/it/10 ^^\[]$\O
+T1/cmr/m/n/10 ) $= 0\OML/cmm/m/it/10 :\OT1/cmr/m/n/10 2$, thresh-old
  []
 
-<pdf/partition.pdf, id=216, 967.615pt x 323.2075pt>
+<pdf/partition.pdf, id=237, 967.615pt x 323.2075pt>
 File: pdf/partition.pdf Graphic file (type pdf)
  <use pdf/partition.pdf>
-Package pdftex.def Info: pdf/partition.pdf used on input line 274.
+Package pdftex.def Info: pdf/partition.pdf used on input line 275.
 (pdftex.def)             Requested size: 338.67033pt x 113.12431pt.
 
-<pdf/moimasp.pdf, id=217, 799.98875pt x 828.09375pt>
+<pdf/moimasp.pdf, id=238, 799.98875pt x 828.09375pt>
 File: pdf/moimasp.pdf Graphic file (type pdf)
  <use pdf/moimasp.pdf>
-Package pdftex.def Info: pdf/moimasp.pdf used on input line 282.
+Package pdftex.def Info: pdf/moimasp.pdf used on input line 283.
 (pdftex.def)             Requested size: 199.99669pt x 207.02293pt.
 
-<pdf/arules10.pdf, id=224, 326.21875pt x 148.555pt>
+Underfull \hbox (badness 6842) in paragraph at lines 292--293
+[]\OT1/cmr/m/n/10 Find as-so-ci-a-tion rules which conains item
+ []
+
+<pdf/arules10.pdf, id=245, 326.21875pt x 148.555pt>
 File: pdf/arules10.pdf Graphic file (type pdf)
  <use pdf/arules10.pdf>
-Package pdftex.def Info: pdf/arules10.pdf used on input line 299.
+Package pdftex.def Info: pdf/arules10.pdf used on input line 300.
 (pdftex.def)             Requested size: 114.17827pt x 51.99503pt.
 
-Underfull \hbox (badness 1194) in paragraph at lines 305--306
-\OT1/cmr/m/n/10 mul-ti-ple num-bers of times($=$number of unique
- []
-
-[7 <./pdf/itemfreq.pdf>] [8 <./pdf/oimasp.pdf> <./pdf/partition.pdf>]
-Underfull \hbox (badness 1168) in paragraph at lines 338--339
+Underfull \hbox (badness 4872) in paragraph at lines 339--340
 []\OT1/cmr/m/n/10 The com-plex-ity of the \OT1/cmr/m/it/10 MASP \OT1/cmr/m/n/10
- al-go-rithm [[]]
+ al-go-rithm [[]] is
  []
 
 
-Underfull \hbox (badness 1142) in paragraph at lines 338--339
-\OT1/cmr/m/n/10 is $^^B(\OML/cmm/m/it/10 NMlog\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
- NM\OT1/cmr/m/n/10 ))$. Af-ter the first im-prove-
- []
+LaTeX Warning: Reference `Fig 11' on page 7 undefined on input line 343.
 
-
-Underfull \hbox (badness 1406) in paragraph at lines 338--339
-\OT1/cmr/m/n/10 the con-clud-ing al-go-rithm(\OT1/cmr/m/it/10 OOIMASP\OT1/cmr/m
-/n/10 ) \OT1/cmr/m/it/10 OIMASP
- []
-
-[9 <./pdf/moimasp.pdf> <./pdf/arules10.pdf>]
-<pdf/comparison.pdf, id=294, 1419.3025pt x 373.395pt>
+[7 <./pdf/oimasp.pdf> <./pdf/moimasp.pdf> <./pdf/arules10.pdf>]
+<pdf/comparison.pdf, id=268, 1419.3025pt x 373.395pt>
 File: pdf/comparison.pdf Graphic file (type pdf)
  <use pdf/comparison.pdf>
-Package pdftex.def Info: pdf/comparison.pdf used on input line 346.
+Package pdftex.def Info: pdf/comparison.pdf used on input line 347.
 (pdftex.def)             Requested size: 425.79404pt x 112.01936pt.
 
 (./elsarticle-template.bbl
-Underfull \hbox (badness 1484) in paragraph at lines 47--52
-\OT1/cmr/m/n/8 Min-ing as-so-ci-a-tion rules with weighted items, in:
+Underfull \hbox (badness 1629) in paragraph at lines 33--40
+\OT1/cmr/m/n/8 min-ing us-ing two-dimensional op-ti-mized as-so-ci-a-tion rules
+:
  []
 
-
-Underfull \hbox (badness 2707) in paragraph at lines 54--61
-[]\OT1/cmr/m/n/8 J. Han, J. Pei, Y. Yin, R. Mao, []Min-ing fre-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--61
-\OT1/cmr/m/n/8 quent pat-terns with-out can-di-date gen-er-a-tion:
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--61
-\OT1/cmr/m/n/8 A frequent-pattern tree ap-proach[], Data Min-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 54--61
-\OT1/cmr/m/n/8 URL []$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1023 / B
- : DAMI .
- []
-
-
-Underfull \hbox (badness 3240) in paragraph at lines 79--84
-\OT1/cmr/m/n/8 URL []$\OT1/cmtt/m/n/8 http : / / dl . acm . org / citation . cf
-m ? id = 1239098 .
- []
-
-
-Underfull \hbox (badness 4254) in paragraph at lines 139--145
-[]\OT1/cmr/m/n/8 F.-C. Tseng, []Min-ing fre-quent item-sets in large
- []
-
-
-Underfull \hbox (badness 1087) in paragraph at lines 139--145
-\OT1/cmr/m/n/8 databases: The hi-er-ar-chi-cal par-ti-tion-ing ap-proach[],
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--145
-\OT1/cmr/m/n/8 Ex-pert Syst. Appl. 40 (5) (2013) 1654--1661.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--145
-\OT1/cmr/m/n/8 URL []$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1016 / j
- . eswa . 2012 . 09 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 165--172
-\OT1/cmr/m/n/8 URL []$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1016 / j
- . eswa . 2013 . 11 .
- []
-
-
-Underfull \hbox (badness 3158) in paragraph at lines 174--181
-\OT1/cmr/m/n/8 al-go-rithm for min-ing of utility-oriented tem-po-ral
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 174--181
-\OT1/cmr/m/n/8 URL []$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1504 / I
-JKEDM . 2015 .
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 183--190
-\OT1/cmr/m/n/8 URL []$\OT1/cmtt/m/n/8 http : / / dx . doi . org / 10 . 1007 /
- []
+[8 <./pdf/partition.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 356.
- [10] [11 <./pdf/comparison.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 356.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 357.
+ [9 <./pdf/comparison.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 357.
  (./elsarticle-template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 356.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 356.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 357.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 357.
 Package rerunfilecheck Info: File `elsarticle-template.out' has not changed.
 (rerunfilecheck)             Checksum: 1D9E40C8990B637D12B528829FAD62D6;609.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 356.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 357.
  ) 
 Here is how much of TeX's memory you used:
- 8588 strings out of 493304
- 122409 string characters out of 6139871
- 254560 words of memory out of 5000000
+ 8586 strings out of 493304
+ 122395 string characters out of 6139871
+ 251505 words of memory out of 5000000
  11809 multiletter control sequences out of 15000+600000
  10696 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -753,10 +699,10 @@ t/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/zap
 fding/uzdr.pfb>
-Output written on elsarticle-template.pdf (11 pages, 527657 bytes).
+Output written on elsarticle-template.pdf (9 pages, 527870 bytes).
 PDF statistics:
- 477 PDF objects out of 1000 (max. 8388607)
- 427 compressed objects within 5 object streams
- 131 named destinations out of 1000 (max. 500000)
+ 459 PDF objects out of 1000 (max. 8388607)
+ 411 compressed objects within 5 object streams
+ 129 named destinations out of 1000 (max. 500000)
  125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

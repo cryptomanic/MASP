@@ -1,4 +1,4 @@
-\documentclass[3p, twocolumn]{elsarticle}
+\documentclass[5p, twocolumn]{elsarticle}
 
 \usepackage{lineno,hyperref}
 \usepackage{graphicx}
@@ -245,7 +245,8 @@ In this section, we have proposed an algorithm($ OIMASP $)[modified version of M
 \label{Fig 6}
 \end{figure*}
 
-If we apply the $ OIMASP $ algorithm for the transaction dataset shown in Figure \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $, we will get the final $ OIMASP $ tree in series of transitions as shown in Figure \ref{Fig 6}.
+If we apply the $ OIMASP $ algorithm for the transaction dataset shown in Figure \ref{Fig 5}, threshold support($ \tau _{s} $) $ = 0.2 $ and threshold confidence($ \tau _{c} $) $ = 0.3 $, we will get the final $ OIMASP $ tree in series of transitions as shown in Figure \ref{Fig 6}. The OIMASP algorithm starts with a root node(Figure \ref{Fig 6}) having data $ \Gamma $. The item having maximum frequency is 6, and it satisfies the threshold support and threshold confidence conditions. Therefore two nodes are added, 6 on the left and $ \sim $ 6 on the right and data associated with 6 and  $ \sim $ 6 are TOIB and TOICB respectively w.r.t. item 6 and data $ \Gamma $. The same will be repeated for 6 and $ \sim $6 as roots. This algorithm stops when conditions are not met.
+
 
 \subsection{How to generate association rules out of OIMASP tree?}
 \newdefinition{rmk}{Definition}
