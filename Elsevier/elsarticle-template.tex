@@ -1,4 +1,4 @@
-\documentclass[5p, twocolumn]{elsarticle}
+\documentclass[preprint]{elsarticle}
 
 \usepackage{lineno,hyperref}
 \usepackage{graphicx}
@@ -64,7 +64,7 @@
 \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \begin{abstract}
-We discuss the problem of mining association rules in the transaction dataset. The previous approach(MASP \cite{oldmasp}) is dependent on the order of items in the dataset. We proposed a novel method which is order independent and also takes into consideration the origin of items to calculate unbiased support and confidence values. Five datasets are used for comparison. The results show that the new approach outperforms the previous approach concerning the number of association rules and length of the longest association rule. On an average, the proposed method requires more computational resources in terms of time. The amount of information extracted using new method has suppressed the increase in time complexity.
+We discuss the problem of mining association rules in the transaction dataset. The previous approach(MASP \cite{oldmasp}) is dependent on the order of items in the dataset. We proposed a novel method which is order independent and also takes into consideration the origin of items to calculate unbiased support and confidence values. Five datasets are used for comparison. The results show that the new approach outperforms the previous approach concerning the number of association rules and length of the longest association rule. On an average, the proposed method requires more computational resources in terms of time. We believe that the extra information extracted using new method compensates for the increase in time complexity as compared to MASP approach. The algorithm produces multiple trees which can be helpful in the visual analysis of data.
 \end{abstract}
 
 \begin{keyword}
@@ -89,7 +89,7 @@ In 2014 O. M. Soyal, et al. \cite{oldmasp} proposed a new approach to extract mo
 
 This approach may produce different outcomes if we change the order of items in transactions. Figure \ref{Fig 12} shows this issue. In Figure \ref{Fig 12} the MASP tree changes with the change in the order of items in transactions for threshold support 0.50 and threshold confidence 0.20. We propose an approach which is order independent. An association rule of the form \textit{A} $\Rightarrow$ \textit{B} must satisfy the threshold support and threshold confidence i.e. probability of occurrence of \textit{A} and \textit{B} together must surpass threshold support, and the likelihood of occurrence of \textit{B} in transactions containing \textit{A} must be greater than or equal to threshold confidence. It means, to calculate support and confidence, it is required to traverse complete transaction database. What if an item appears for the first time in the $ ith $ transaction? It is biased to take the entire dataset for calculating support and confidence for the rules containing that particular item. So to generate all rules containing a particular item x, it is reasonable to ignore all transactions(for calculating support and confidence) that come before the transaction in which that particular item appears for the first time. Taking into account the origin of the item is the second contribution. Embedding these two changes to the Omer M. Soyal \cite{oldmasp} approach is the basis of our research.\\
 \\
-Our contribution
+Our contributions
 \begin{enumerate}[1)]
 \item Make the MASP(\cite{oldmasp}) algorithm order independent.
 \item Consider the origin of items for calculating unbiased support and confidence.
@@ -104,7 +104,7 @@ In 2006, G. Chen, et al. \cite{classify} used association rule mining for solvin
 
 In the first phase of Apriori \cite{fastapriori} algorithm, all the itemsets are generated, and infrequent itemsets are pruned. The modified algorithm(2012) \cite{minmizcandidt} reduces the burden of pruning step, since it generates fewer candidate itemsets. In 2013, Tseng, et al. \cite{Tseng:2013:MFI} proposed an approach(Hierarchical Partitioning) to perform frequent itemset mining in big databases. It uses Frequent Pattern List(FPL) data structure. FPL partitions the transaction database into a set of sub-databases before performing frequent itemset mining. With the passage of time Association Rule Mining find its role in many applications. J. Nahar, et al.(2013) \cite{armheart} proposed a way to detect factors that can contribute to heart diseases in males and females. High Utility Itemset mining is used to find all the itemsets that generate at least threshold profits. It takes into account quantity of items and benefits. It is useful in many applications such as stock market prediction and retail market data analysis. Before mining high utility itemset it is required to set the threshold value of profits(min\_util). It's difficult for users to set an appropriate value of min\_util. Low value leads to too many itemsets. On the other side, high value results into low or no itemsets at all. Cheng, et al. \cite{Wu:2012:MTH} introduced a new framework top-k high utility itemset mining, where k is the number of these itemsets to be mined. They proposed an efficient algorithm named TKU (Top-K Utility itemsets mining) for mining high utility itemset without setting any threshold value. Before 2014 there were many algorithms available to perform high utility itemset mining. These algorithms generate a significant number of candidate itemsets that diminishes the mining performance. Yun, et al.(2014) \cite{Yun:HUI} proposed an approach which prunes candidate itemsets efficiently. They also proposed a tree data structure which captures entire transaction database in a single pass. Their approach outperforms the state of the art tree based algorithms in runtime. To enhance the quality of association rule mining, it may be worthy to include factors such as value utility, temporal, etc. G. Maragatham, et al.(2015) \cite{utarm} have proposed an efficient algorithm which combines both utility and temporal time periods for mining extraordinary association rules. Their results show that UTARM(Utility-Based Temporal Association Rule Mining) algorithm efficiently discovers the utility-oriented temporal association rules. In 2016 O. M. Soysal, et al. \cite{sparseds} proposed a data structure for sparse memory allocation for parallel and sequential data mining. They have used this data structure on apriori-TID, MASP-tree, and FP-growth algorithms to reduce memory allocation cost. They concluded that the speed-up in apriori-TID is more than FP-growth and the modified MASP algorithm becomes 3.42 times faster than the old implementation \cite{oldmasp}.
 
-\section{Method}
+\section{Model}
 Let $ I $ be a universal set of items. A single transaction($ \tau $) is a non-empty subset of universal itemset($ I $). Mathematically, $ \tau = \lbrace item : item$ $\epsilon $ $ I \rbrace$. A transaction database($ \Gamma $) is a collection of such transactions. A rule of the form $ X \Rightarrow  Y $ must satisfy $ support(X \Rightarrow Y) $ $ \geq $ $ \tau _{s} $(threshold support) and $ confidence(X \Rightarrow Y) $ $ \geq $ $ \tau _{c} $(threshold confidence) where $ X $ and $ Y $ are non-empty subsets of $ I $ and $ X $ $ \cap $ $ Y $ $ = \phi $. $ support(X \Rightarrow Y) $ is defined as the probability of occurrence of $ X $ and $ Y $ together in the transaction database($ \Gamma $). Mathematically, $ support(X \Rightarrow Y) $ $ = $ $ \frac{Count(X \cup Y)}{Count(\phi)} $ where $ Count(Z) $ is the number of transactions which are superset of $ Z $. $ confidence(X \Rightarrow Y) $ is the probability of occurrence of $ Y $ in those transactions of $ \Gamma $ which contains $ X $ or $ confidence(X \Rightarrow Y) $ $ = $ $ Probability(Y  \vert  X) $ $ = $ $ \frac{Count(X \cup Y)}{Count(X)} $. The values of threshold support($ 0 \leq \tau _{s} \leq 1 $) and threshold confidence($ 0 \leq \tau _{c} \leq 1 $) are selected before performing association rule mining.
 
 First, we will explain how to generate $ OIMASP $ tree before taking into account the origin of the item in $ \Gamma $. Some of the terminologies that will be helpful in understanding the algorithm.
@@ -195,6 +195,8 @@ Transaction database \ref{Fig 1} is valid, and \ref{Fig 2} is invalid(duplicate 
 \end{algorithm}
 
 \end{enumerate}
+
+\section{Algorithms}
 
 \subsection{How to generate OIMASP tree?}
 In this section, we have proposed an algorithm($ OIMASP $)[modified version of MASP \cite{oldmasp}] which is independent of the ordering of items in transactions.
@@ -338,9 +340,11 @@ For the OIMASP tree in Figure \ref{Fig 9}, generate association rules for all $ 
 \subsection{Complexity of OOIMASP algorithm}
 The complexity of the \emph{MASP} algorithm \cite{oldmasp} is $ \Theta(NMlog(NM)) $. After the first improvement(OIMASP) complexity remains the same. In the concluding algorithm(\emph{OOIMASP}) \emph{OIMASP} can be called at max N times so that the complexity will be $ \displaystyle\sum_{i=1}^{N} \Theta(iMlog(iM)) = \Theta(N^{2}Mlog(NM)) $.
 
-\section{Experiments and results}
+\section{Experimental setup and results}
 
-The old approach and the new approach are compared using five datasets\footnote{\label{datasetlink} https://github.com/cryptomanic/OOIMASP-datasets} namely A, B, C, D and E. Metrics used for comparison are maximum rule size and the total number of rules generated. As you can see in Figure \ref{Fig 11} that the new approach outperforms the old approach w.r.t number of rules generated and longest rule size. The amount of information obtained from the dataset has suppressed the increase in time complexity.
+The old approach and the new approach are compared using five datasets\footnote{\label{datasetlink} https://github.com/cryptomanic/OOIMASP-datasets} namely A[6x5], B[20x20], C[40x40], D[100x100] and E[1000x1000]. Metrics used for comparison are maximum rule size and the total number of rules generated. The OOIMASP algorithm will generate at least those rules that are produced by MASP. The OOIMASP algorithm generates five additional rules compared to MASP for dataset A(12) for $ threshold $ $ support $ 60\% and $ threshold $ $ confidence $ 30\%. The rule having maximum lengh(4) belongs to new rules. The rule having the maximum length(4) belongs to the new ruleset. The proposed approach generates not only additional rules but also responsible for introducing bigger rules. Similarly, for dataset B, C, and D the number of additional rules generated are 224, 99, and 63 respectively. In the case of transaction dataset E, the old approach is unable to generate any rule whereas the new method produces a large number of rules.
+
+As you can see in Figure \ref{Fig 11} that the new approach outperforms the old approach w.r.t number of rules generated and longest rule size. The amount of information obtained from the dataset has compensated the increase in time complexity.
 
 \begin{figure*}
 \begin{center}
@@ -349,6 +353,8 @@ The old approach and the new approach are compared using five datasets\footnote{
 \caption{Comparison of \emph{MASP} and \emph{OOIMASP}}
 \label{Fig 11}
 \end{figure*}
+
+\section{Conclusion}
 
 \section*{References}
 
