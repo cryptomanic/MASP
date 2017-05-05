@@ -6,45 +6,50 @@ Database file #1: mybibfile.bib
 Warning--empty journal in fastapriori
 Warning--empty journal in massociation
 Warning--empty journal in minmizcandidt
-You've used 25 entries,
+Warning--empty journal in Agrawal:1993:ESS:645415.652239
+Warning--empty journal in Agrawal:1992:ICD:645918.672486
+Warning--empty journal in 213146
+Warning--can't use both author and editor fields in Cheung1994
+Warning--empty chapter and pages in Cheung1994
+You've used 30 entries,
             2937 wiz_defined-function locations,
-            868 strings with 10648 characters,
-and the built_in function-call counts, 8779 in all, are:
-= -- 890
-> -- 244
-< -- 5
-+ -- 98
-- -- 73
-* -- 758
-:= -- 1175
-add.period$ -- 45
-call.type$ -- 25
-change.case$ -- 25
+            913 strings with 11956 characters,
+and the built_in function-call counts, 10519 in all, are:
+= -- 1055
+> -- 294
+< -- 6
++ -- 118
+- -- 88
+* -- 918
+:= -- 1395
+add.period$ -- 52
+call.type$ -- 30
+change.case$ -- 29
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 262
-empty$ -- 949
-format.name$ -- 95
-if$ -- 2240
+cite$ -- 38
+duplicate$ -- 320
+empty$ -- 1139
+format.name$ -- 114
+if$ -- 2676
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 25
-newline$ -- 115
-num.names$ -- 25
-pop$ -- 145
+int.to.str$ -- 30
+missing$ -- 31
+newline$ -- 136
+num.names$ -- 30
+pop$ -- 187
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 508
+skip$ -- 597
 stack$ -- 0
-substring$ -- 561
-swap$ -- 105
-text.length$ -- 5
+substring$ -- 680
+swap$ -- 129
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
-warning$ -- 3
-while$ -- 64
-width$ -- 27
-write$ -- 258
-(There were 3 warnings)
+warning$ -- 8
+while$ -- 79
+width$ -- 32
+write$ -- 301
+(There were 8 warnings)

@@ -188,4 +188,38 @@ O.~M. Soysal, E.~Gupta, H.~Donepudi,
   {\path{doi:10.1007/s11227-015-1566-x}}.
 \newline\urlprefix\url{http://dx.doi.org/10.1007/s11227-015-1566-x}
 
+\bibitem{Agrawal:1993:ESS:645415.652239}
+R.~Agrawal, C.~Faloutsos, A.~N. Swami,
+  \href{http://dl.acm.org/citation.cfm?id=645415.652239}{Efficient similarity
+  search in sequence databases} (1993) 69--84.
+\newline\urlprefix\url{http://dl.acm.org/citation.cfm?id=645415.652239}
+
+\bibitem{Agrawal:1992:ICD:645918.672486}
+R.~Agrawal, S.~P. Ghosh, T.~Imielinski, B.~R. Iyer, A.~N. Swami,
+  \href{http://dl.acm.org/citation.cfm?id=645918.672486}{An interval classifier
+  for database mining applications} (1992) 560--573.
+\newline\urlprefix\url{http://dl.acm.org/citation.cfm?id=645918.672486}
+
+\bibitem{213146}
+T.~M. Anwar, H.~W. Beck, S.~B. Navathe, Knowledge mining by imprecise querying:
+  a classification-based approach (1992) 622--630\href
+  {http://dx.doi.org/10.1109/ICDE.1992.213146}
+  {\path{doi:10.1109/ICDE.1992.213146}}.
+
+\bibitem{Cheung1994}
+D.~W.-l. Cheung, A.~Wai-Chee~Fu, J.~Han,
+  \href{http://dx.doi.org/10.1007/3-540-58495-1_17}{Knowledge discovery in
+  databases: A rule-based attribute-oriented approach}, Springer Berlin
+  Heidelberg, Berlin, Heidelberg, 1994, pp. 164--173.
+\newblock \href {http://dx.doi.org/10.1007/3-540-58495-1_17}
+  {\path{doi:10.1007/3-540-58495-1_17}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1007/3-540-58495-1_17}
+
+\bibitem{Quinlan:1986:IDT:637962.637969}
+J.~R. Quinlan, \href{http://dx.doi.org/10.1023/A:1022643204877}{Induction of
+  decision trees}, Mach. Learn. 1~(1) (1986) 81--106.
+\newblock \href {http://dx.doi.org/10.1023/A:1022643204877}
+  {\path{doi:10.1023/A:1022643204877}}.
+\newline\urlprefix\url{http://dx.doi.org/10.1023/A:1022643204877}
+
 \end{thebibliography}
