@@ -225,15 +225,22 @@ In this section, we have proposed an algorithm($ OIMASP $)[modified version of M
       {
         return $ Node $
       }
-    Add a node on the left side of $ Node $ say $ Node_{left} $ and store $ I_{max} $ in it\\
-    
-    Add a node $ Node_{right} $ on the right side of $ Node $ and store  $ \sim I_{max} $ in it\\
-    
+	Add a node on the left side of $ Node $ say $ Node_{left} $ and store $ I_{max} $ in it\\
     $ \Gamma_{left} = TOIB(\Gamma_{current}, I_{max}) $\\
-    $ \Gamma_{right} = TOICB(\Gamma_{current}, I_{max}) $\\
-    
     $ OIMASP(\Gamma_{left}, Node_{left}) $\\
+    
+	\If{(support = $ \dfrac{\vert \Gamma_{current} \vert - f_{max}}{\vert \Gamma \vert} $) $ < \tau _{s} $}
+      {
+        return $ Node $
+      }     
+    \If{(confidence = $ \dfrac{\vert \Gamma_{current} \vert - f_{max}}{\vert \Gamma_{current} \vert} $) $ < \tau _{c} $}
+      {
+        return $ Node $
+      }        
+    Add a node $ Node_{right} $ on the right side of $ Node $ and store  $ \sim I_{max} $ in it\\        
+    $ \Gamma_{right} = TOICB(\Gamma_{current}, I_{max}) $\\    
     $ OIMASP(\Gamma_{right}, Node_{right}) $\\
+    
     return $ Node $
     \caption{Algorithm to generate $ OIMASP $ tree. $ \Gamma $ is the input transaction database, $ \vert \Gamma \vert $ is the number of rows in $ \Gamma $, $ \tau_{s} $ is the threshold support, and $ \tau_{c} $ is the threshold confidence.}
 \end{algorithm}
