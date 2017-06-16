@@ -23,23 +23,10 @@ MASP.TREE.2 <- function(data, root, block) {
         if(nrow(tcblock)/nrow(data) >= C) {
           rchild <- root$AddChild(paste0("~", fitem))
           MASP.TREE.2(tcblock, rchild, FALSE)
-        } else {
-          rchild <- root$AddChild(paste0("~", fitem))
-          rchild$tmined <- TRUE
         }
-      } else {
-        rchild <- root$AddChild(paste0("~", fitem))
-        rchild$tmined <- FALSE
       }
-    } else {
-      lchild <- root$AddChild(fitem)
-      lchild$tmined <- TRUE
     }
-  } else if(block == TRUE) {
-    root$tmined <- TRUE
-  } else {
-    root$tmined <- FALSE
-  }
+  } 
 }
 
 D <- S <- C <- NULL
@@ -68,7 +55,7 @@ generateMaspTree2 <- function(data, support = 0.2, confidence = 0.3) {
 
 # example
 mat <- matrix(nrow = 4, ncol = 4)
-mat[1, ] <- c(1, 2, 3, 4)
+mat[1, ] <- c(1, 2, 3, 4, 5)
 mat[2, ] <- c(2, 3, 4, 1)
 mat[3, ] <- c(3, 4, 1, 2)
 mat[4, ] <- c(4, 1, 2, 3)
@@ -76,6 +63,17 @@ mat[4, ] <- c(4, 1, 2, 3)
 # old approach
 plot(root1 <- generateMaspTree(as.data.frame(mat)))
 
+dtdt <- tribble(~C1, ~C2, ~C3, ~C4, ~C5,
+               '1', '12', '3', '4', '5',
+               '1', '5', '6', '4', '12',
+               '8', '6', '9', '12', '5',
+               '9', '2', '3', '6', '7',
+               '6', '9', '10', '8', '7',
+               '1', '8', '3', '2', '7')
+dfdt <- as.data.frame(dtdt)
+mtdt <- as.matrix(dfdt)
+mtdt[1, 1] <- as.character(mtdt[1, 1])
+plot(root2 <- generateMaspTree2(mtdt[5:6,], .2, .3))
 # new approach
 mat[1, 1] <- as.character(mat[1, 1])
-plot(root2 <- generateMaspTree2(mat))
+plot(root2 <- generateMaspTree2(mat, .2, .3))

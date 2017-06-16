@@ -47,6 +47,7 @@ generateAllMaspRulesMod <- function(root, items) {
   allRules
 }
 
+  root_collection <- list()
   new_model <- function(data, support = 0.3, confidence = 0.2) {
     # itemsMinRow is a list
     # first element is the row number after that which items first appear in this row
@@ -56,11 +57,13 @@ generateAllMaspRulesMod <- function(root, items) {
     row <- nrow(data)
     col <- ncol(data)
     
+    root_collection <<- list()
     allrules <- list()
     for(i in 1:length(itemsMinRow)) {
       help <- itemsMinRow[[i]]
       root <- generateMaspTree2(data[(as.numeric(help[1])):row, , drop = FALSE], support, confidence)
       lrs <- generateAllMaspRulesMod(root, help[-1])
+      root_collection <<- append(root_collection, root)
       allrules <- append(allrules, lrs)
     }
     unique(allrules)
@@ -153,3 +156,11 @@ length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
+
+mat <- matrix(nrow = 4, ncol = 4)
+mat[1, ] <- c(1, 2, 3, 4)
+mat[2, ] <- c(2, 3, 4, 1)
+mat[3, ] <- c(3, 4, 1, 2)
+mat[4, ] <- c(4, 1, 2, 3)
+mat[1, 1] <- as.character(mat[1, 1])
+new_rules <- new_model(mat, .3, .01)

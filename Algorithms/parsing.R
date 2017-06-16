@@ -1,4 +1,5 @@
 library(data.tree)
+library(tidyverse)
 
 # generate masp tree
 # query: query to get masp block
@@ -59,23 +60,10 @@ MASP.TREE <- function(query, root, block) {
         if((nrow(d)-gmax)/nrow(d) >= C) {
           rchild <- root$AddChild(paste0("~", paste0(colname, "=", names(gmax))))
           MASP.TREE(aresult, rchild, FALSE)
-        } else {
-          rchild <- root$AddChild(paste0("~", paste0(colname, "=", names(gmax))))
-          rchild$tmined <- TRUE
         }
-      } else {
-        rchild <- root$AddChild(paste0("~", paste0(colname, "=", names(gmax))))
-        rchild$tmined <- FALSE
-      }
-    } else {
-      lchild <- root$AddChild(paste0(colname, "=", names(gmax)))
-      lchild$tmined <- TRUE
+      } 
     }
-  } else if(block == TRUE) {
-    root$tmined <- TRUE
-  } else {
-    root$tmined <- FALSE
-  }
+  } 
 }
 
 D = NULL;S = NULL; C = NULL;
@@ -203,7 +191,7 @@ generateAllMaspRules <- function(root) {
     rules <- generateMaspRules(pexroot[[i]])
     allRules <- append(allRules, rules)
   }
-  allRules
+  unique(allRules)
 }
 
 # blog data
@@ -212,3 +200,23 @@ d <- read.csv("../datasets/blogdata/blogData_train.csv", header = FALSE)
 d <- d[, 1:50]
 system.time(root <- generateMaspTree(data = d, support = 0.001, confidence = 0.25))
 longestRuleSize(root)
+
+d <- data.frame(A1 = c(1,2,3,4))
+d$A2 <- c(2, 1, 3, 4)
+d$A3 <- c(3, 2, 4, 1)
+d$A4 = c(1, 2, 3, 4)
+
+d <- data.frame(A1 = c(1,2,3,4))
+d$A2 <- c(2, 4, 2, 2)
+d$A3 <- c(3, 3, 4, 3)
+d$A4 = c(4, 1, 1, 1)
+
+d <- data.frame(A1 = c(1,1,1,1))
+d$A2 <- c(2, 2, 2, 2)
+d$A3 <- c(3, 3, 3, 3)
+d$A4 = c(4, 4, 4, 4)
+
+root <- generateMaspTree(data = d, support = 0.50, confidence = 0.2)
+plot(root)
+
+
