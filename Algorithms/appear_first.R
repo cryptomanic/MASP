@@ -74,6 +74,8 @@ max_rule_size <- function(rules) {
 }  
 
 # testing
+
+support <- .3; confidence <-  .01;
 library(tidyverse) # support .60 confidence .30
 tdt <- tribble(~C1, ~C2, ~C3, ~C4, ~C5,
                 '1', '2', '3', '4', '5',
@@ -92,11 +94,15 @@ mtdt <- as.matrix(dfdt)
 mtdt[1, 1] <- as.character(mtdt[1, 1])
 
 # old approach
-root1 <- generateMaspTree(dfdt, .60, .3)
+root1 <- generateMaspTree(dfdt, support, confidence)
+old_rules <- NULL
+new_rules <- NULL
 old_rules <- generateAllMaspRules(root1)
 
 # new approach
-new_rules <- new_model(mtdt, .6, .3)
+new_rules <- new_model(mtdt, support, confidence)
+length(old_rules)
+length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
 
@@ -113,45 +119,57 @@ generate.data.mod <- function(nrow, ncol, rng) {
   list(old_data = old_data, new_data = new_data)
 }
 
+# dataset B
 set.seed(10001)
 cdata <- generate.data.mod(20, 20, 25)
-root1 <- generateMaspTree(cdata$old_data, .1, .05)
+root1 <- generateMaspTree(cdata$old_data, support, confidence)
 root1
+old_rules <- NULL
+new_rules <- NULL
 old_rules <- generateAllMaspRules(root1)
-new_rules <- new_model(cdata$new_data, .1, .05)
+new_rules <- new_model(cdata$new_data, support, confidence)
+length(old_rules)
+length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
 
+# dataset C
 set.seed(1010)
 cdata <- generate.data.mod(40, 40, 47)
-root1 <- generateMaspTree(cdata$old_data, .1, .05)
+root1 <- generateMaspTree(cdata$old_data, support, confidence)
 root1
+old_rules <- NULL
+new_rules <- NULL
 old_rules <- generateAllMaspRules(root1)
-new_rules <- new_model(cdata$new_data, .1, .05)
+new_rules <- new_model(cdata$new_data, support, confidence)
 length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
 
-# slow speed
+# Dataset D  slow speed
 set.seed(1010)
 cdata <- generate.data.mod(100, 100, 105)
-root1 <- generateMaspTree(cdata$old_data, .03, .001)
+root1 <- generateMaspTree(cdata$old_data, support, confidence)
 root1
+old_rules <- NULL
+new_rules <- NULL
 old_rules <- generateAllMaspRules(root1)
-new_rules <- new_model(cdata$new_data, .03, .001)
+new_rules <- new_model(cdata$new_data, support, confidence)
 length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
 
-# when new approch became worse
+# Dataset E when new approch became worse
 set.seed(1010)
 cdata <- generate.data.mod(1000, 1000, 1020)
-root1 <- generateMaspTree(cdata$old_data, .3, .01)
+root1 <- generateMaspTree(cdata$old_data, support, confidence)
 root1
+old_rules <- NULL
+new_rules <- NULL
 old_rules <- generateAllMaspRules(root1)
-new_rules <- new_model(cdata$new_data, .3, .01)
+new_rules <- new_model(cdata$new_data, support, confidence)
 length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
@@ -164,3 +182,31 @@ mat[3, ] <- c(3, 4, 1, 2)
 mat[4, ] <- c(4, 1, 2, 3)
 mat[1, 1] <- as.character(mat[1, 1])
 new_rules <- new_model(mat, .3, .01)
+
+
+# TEST -----/-------
+tdt <- tribble(~C1, ~C2, ~C3,
+               '1', '2', '3',
+               '3', '1', '2',
+               '2', '3', '1')
+
+# for old algo
+dfdt <- as.data.frame(tdt)
+for(i in 1:3) dfdt[[i]] <- as.integer(dfdt[[i]])
+
+# for new algo
+mtdt <- as.matrix(dfdt)
+mtdt[1, 1] <- as.character(mtdt[1, 1])
+
+# old approach
+root1 <- generateMaspTree(dfdt, .001, .001)
+old_rules <- NULL
+new_rules <- NULL
+old_rules <- generateAllMaspRules(root1)
+
+# new approach
+new_rules <- new_model(mtdt, support, confidence)
+length(old_rules)
+length(new_rules)
+max_rule_size(old_rules)
+max_rule_size(new_rules)
