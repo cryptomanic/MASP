@@ -75,7 +75,7 @@ max_rule_size <- function(rules) {
 
 # testing
 
-support <- .3; confidence <-  .01;
+support <- .03; confidence <-  .001;
 library(tidyverse) # support .60 confidence .30
 tdt <- tribble(~C1, ~C2, ~C3, ~C4, ~C5,
                 '1', '2', '3', '4', '5',
@@ -106,6 +106,12 @@ length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
 
+# mid approach
+root2 <- generateMaspTree2(mtdt, support, confidence)
+mid_rules <- generateAllMaspRules(root2)
+length(mid_rules)
+max_rule_size(mid_rules)
+
 #lowram #stuck #testcase
 generate.data.mod <- function(nrow, ncol, rng) {
   data <- matrix(nrow = nrow, ncol = ncol) 
@@ -132,6 +138,12 @@ length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
+# mid approach
+root2 <- generateMaspTree2(cdata$new_data, support, confidence)
+mid_rules <- NULL
+mid_rules <- generateAllMaspRules(root2)
+length(mid_rules)
+max_rule_size(mid_rules)
 
 # dataset C
 set.seed(1010)
@@ -146,6 +158,12 @@ length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
+# mid approach
+root2 <- generateMaspTree2(cdata$new_data, support, confidence)
+mid_rules <- NULL
+mid_rules <- generateAllMaspRules(root2)
+length(mid_rules)
+max_rule_size(mid_rules)
 
 # Dataset D  slow speed
 set.seed(1010)
@@ -160,6 +178,12 @@ length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
+# mid approach
+root2 <- generateMaspTree2(cdata$new_data, support, confidence)
+mid_rules <- NULL
+mid_rules <- generateAllMaspRules(root2)
+length(mid_rules)
+max_rule_size(mid_rules)
 
 # Dataset E when new approch became worse
 set.seed(1010)
@@ -174,6 +198,86 @@ length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
+# mid approach
+root2 <- generateMaspTree2(cdata$new_data, support, confidence)
+mid_rules <- NULL
+mid_rules <- generateAllMaspRules(root2)
+length(mid_rules)
+max_rule_size(mid_rules)
+
+# connect dataset on first 3000 transactions
+data <- read.table("connect.dat")[1:3000, ]
+mdata <- as.matrix(data)
+mdata[1, 1] <- as.character(mdata[1, 1])
+
+old_rules <- NULL
+mid_rules <- NULL
+new_rules <- NULL
+support <- 0.6;confidence <- 0.3;
+root1 <- generateMaspTree(data, support, confidence)
+root2 <- generateMaspTree2(mdata, support, confidence)
+new_rules <- new_model(mdata, support, confidence)
+
+old_rules <- generateAllMaspRules(root1)
+mid_rules <- generateAllMaspRules(root2)
+
+length(old_rules)
+max_rule_size(old_rules)
+length(new_rules)
+max_rule_size(new_rules)
+length(mid_rules)
+max_rule_size(mid_rules)
+
+# ------------------------------------------------------------
+
+# mushroom dataset
+data <- read.table("mushroom.dat")
+mdata <- as.matrix(data)
+mdata[1, 1] <- as.character(mdata[1, 1])
+
+old_rules <- NULL
+mid_rules <- NULL
+new_rules <- NULL
+support <- 0.6;confidence <- 0.3;
+root1 <- generateMaspTree(data, support, confidence)
+root2 <- generateMaspTree2(mdata, support, confidence)
+new_rules <- new_model(mdata, support, confidence)
+
+old_rules <- generateAllMaspRules(root1)
+mid_rules <- generateAllMaspRules(root2)
+
+length(old_rules)
+max_rule_size(old_rules)
+length(new_rules)
+max_rule_size(new_rules)
+length(mid_rules)
+max_rule_size(mid_rules)
+# ------------------------------------------------------------
+
+# chess dataset
+data <- read.table("chess.dat")
+mdata <- as.matrix(data)
+mdata[1, 1] <- as.character(mdata[1, 1])
+
+old_rules <- NULL
+mid_rules <- NULL
+new_rules <- NULL
+support <- 0.6;confidence <- 0.3;
+root1 <- generateMaspTree(data, support, confidence)
+root2 <- generateMaspTree2(mdata, support, confidence)
+new_rules <- new_model(mdata, support, confidence)
+
+old_rules <- generateAllMaspRules(root1)
+mid_rules <- generateAllMaspRules(root2)
+
+length(old_rules)
+max_rule_size(old_rules)
+length(new_rules)
+max_rule_size(new_rules)
+length(mid_rules)
+max_rule_size(mid_rules)
+
+# ------------------------------------------------------------
 
 mat <- matrix(nrow = 4, ncol = 4)
 mat[1, ] <- c(1, 2, 3, 4)
@@ -210,3 +314,14 @@ length(old_rules)
 length(new_rules)
 max_rule_size(old_rules)
 max_rule_size(new_rules)
+
+# generate dataset information
+info_set <- function(dst) {
+  cat("rows:", nrow(dst), "\n")
+  cat("cols:", ncol(dst), "\n")
+  unitems <- sort(as.integer(unique(unlist(dst))))
+  cat("UniqueItems: ", length(unitems), "\n")
+  cat(unitems)
+}
+
+# microbenchmark is used for calculating running time
