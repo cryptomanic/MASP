@@ -42,12 +42,21 @@ Page 3
 
 Page 4 - second sentence
 "It gave satisfactory results when compared to then existing classification algorithms." -> Do you want to mean classification algorithms until 2006? Please explain more clearly the significance of "satisfactory results".
+> It gave satisfactory results in terms of accuracy when compared to CBA, C4.5, NN and SVM.
+> [https://pdfs.semanticscholar.org/6ccb/37c32a240666d0e6d4a24f33a35a5c6f3c9b.pdf]
 
 "The quality of association rules depends on the threshold value of support and confidence."
    What is the significance of "quality"?
+> Quality means how much useful association rules are!
 
 "Kuo et al. (2011) proposed an approach to find the best threshold values which can produce quality rules. It gave promising results when compared to the genetic algorithm."
    "promising results" -> You should explain more clearly.
+> Apriori algorithm has a very critical drawback - the minimal support and confidence are determined subjectively.
+> The proposed algorithm suggests suitable threshold values and obtain quality rules.
+> A real-world stock market database is employed to mine association rules to measure investment behavior and stock category > purchasing.
+> Promising results: the proposed algorithm gave similar results compared to Apriori. But we don't need to provide threshold 
+> support and threshold confidence as we do in Apriori.
+[https://dl.acm.org/citation.cfm?id=1857703]
 
 Page 4
 "In the first phase of Apriori Agrawal & Srikant (1994) algorithm, all the itemsets are generated, and infrequent itemsets are pruned." -> "Apriori Agrawal & Srikant" is the name of the algorithm?
@@ -57,15 +66,21 @@ Page 4
 
 "The modified algorithm Abaya (2012) reduces…."
     It is a modification of the "Apriori" algorithm mentioned in the previous sentence?
+> Yes modification is done to apriori.
 
 "In Maragatham & Lakshmi (2015), authors have proposed an efficient algorithm which combines both utility and temporal time periods for mining extraordinary association rules."
    The sentence should be reformulated. Also explain the significance "extraordinary association rules". Why the rules are called extraordinary?
+> The proposed work is extended from traditional ARM by incorporating the temporal and utility factor for mining significant > association rules.
+> The experimentation is carried out on publication database and the experimental results proved that the proposed algorithm
+> effectively discovers the utility-oriented temporal association rules.
 
 Page 5
 "Iff"
 
 Second column of page 5.
 "In this section, we have proposed an algorithm(OIMASP Algorithm 1)[modified version of MASP algorithm proposed in Soysal (2015)] which is independent of the ordering of items in transactions." -> Revise the sentence in order to be more ease to understand by the reader. It can be decomposed even in two sentences.
+> In this section, we have proposed an OIMASP(Order Independent MASP) algorithm. The OIMASP algorithm is independent of the 
+> ordering of items in transactions.
 
 Page 8
 
@@ -76,6 +91,7 @@ Algorithm 1
 
 Page 8
 "4.4. Modified version of OIMASP(OOIMASP) which takes into account origins of items in the transaction database" -> The title must be shortened and revised but should remain expressive to the content. For example, what is the significance of "OIMASP(OOIMASP)"
+> OOIMASP(Origin based association rule mining with Order Independent MASP) algorithm
 
 Page 10
 "Discussion: ….." ->Should be included as a new paragraph.
