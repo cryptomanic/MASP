@@ -117,17 +117,29 @@ Conclusions
 "In this paper, we have proposed OOIMASP algorithm, which is order independent."
     Which kind of algorithm?
      "OOIMASP" -> From where this abbreviation came?
+> In this paper, we have proposed OOIMASP algorithm (used for Association Rule Mining), which is order independent.
+> MASP = Mostly Associated Sequential Patterns
+> OIMASP = Order Independent MASP 
+> OOIMASP = Origin + OIMASP
 
 "Unlike MASP...." -> What is MASP? Where is proposed (it is proposed in a paper)? "MASP" -> From where this abbreviation came?
+> MASP = Mostly Associated Sequential Patterns [explained in O M Soysal Paper]
+> Unlike MASP algorithm.....
 
 "OOIMASP uses an intelligent frequency based approach to rearrange the items in transactions."
     Please justify the use of the notion "intelligent".
 
 "Our experimental results confirm that OOIMASP outperforms MASP in terms of both the metrics i.e., number of generated rules and the length of the longest rule."
     You should extend this idea with some additional sentences related to the "number of generated rules" and "length of the longest rule" (see the observation from the abstract). It should be extended more than will appear in the abstract.
+> Our experimental results confirm that OOIMASP outperforms MASP in terms of both the metrics i.e., number of generated 
+> rules and the length of the longest rule. On an average OOIMASP algorithm generates 632% longer rules and 457% more 
+> association rules than MASP algorithm. As per the Figure 13 there are cases where MASP algorithm is not able to produce 
+> even a single rule where as OOIMASP algorithm is generating large number of rules.
 
 If there is any disadvantage should be mentioned here.
+> OOIMASP algorithm requires approximately 5 times more computational resources than MASP algorithm.
 
 "As a future work, we would like to parallelize OOIMASP algorithm in a cost optimal manner." -> Which kind of cost? This is intended to eliminate just the disadvantage of increased time?
+> Objective is to eliminate the increase in computational resources used.
 
 You must revise the paper carefully.
